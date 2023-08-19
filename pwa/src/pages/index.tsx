@@ -8,7 +8,7 @@ interface MapCenter {
 
 export default function Index() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCzg1MFFfx7ieuTJKYnTSGe65x4ft33CFw",
+    googleMapsApiKey: // API key here
   });
 
   if (!isLoaded) return <div>Loading...</div>;
