@@ -15,8 +15,6 @@ exports.calculateRoute = async (origin: string, destination: string) => {
   const originLocation = await exports.geocode(origin)
   const destinationLocation = await exports.geocode(destination)
 
-  console.log(originLocation.location.lat)
-
   return fetch(`https://routes.googleapis.com/directions/v2:computeRoutes`, {
     method: 'POST',
     headers: {
