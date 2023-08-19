@@ -1,48 +1,52 @@
 interface GetProps {
-  url: string;
-  params?: any;
-  token?: string;
+  url: string
+  params?: any
+  token?: string
 }
 
 export const get = async ({ url, params }: GetProps) => {
   if (params) {
-    url += "?" + new URLSearchParams(params).toString();
+    url += '?' + new URLSearchParams(params).toString()
   }
 
   const response = await fetch(url, {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': 'http://localhost:8080',
     },
-    method: "GET",
-  });
+    method: 'GET',
+    mode: 'no-cors',
+  })
 
-  const data = await response.json();
+  const data = await response.json()
 
   if (response.ok) {
-    return data;
+    return data
   }
-  throw data;
-};
+  throw data
+}
 
 interface PostProps {
-  url: string;
-  body?: any;
-  token?: string;
+  url: string
+  body?: any
+  token?: string
 }
 
 export const post = async ({ url, body }: PostProps) => {
   const response = await fetch(url, {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-    method: "POST",
+    method: 'POST',
+    mode: 'no-cors',
     body: JSON.stringify(body),
-  });
+  })
 
-  const data = await response.json();
+  const data = await response.json()
 
   if (response.ok) {
-    return data;
+    console.log('ok!')
+    return data
   }
-  throw data;
-};
+  throw data
+}

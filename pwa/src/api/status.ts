@@ -1,8 +1,14 @@
 import { get } from './fetchRequests'
+const baseURL = import.meta.env.VITE_BASE_URL
 
-export const getStatus = async () => {
+interface getStatusProps {
+  params: { trackingId?: string }
+}
+
+export const getStatus = async ({ params }: getStatusProps) => {
   const data = await get({
-    url: 'https://jsonplaceholder.typicode.com/comments', // TODO: replace with our API
+    url: `${baseURL}/delivery/${params.trackingId}`,
+    // params: params,
   })
   return data
 }
