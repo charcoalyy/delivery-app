@@ -1,7 +1,7 @@
 import { equal } from 'assert'
 import { create } from 'domain'
 import { Router, Response } from 'express'
-const { geocode, calculateRoute } = require('../utils/google-maps')
+const { calculateRoute } = require('../utils/google-maps')
 const { attachFees } = require('../routes/inquiry')
 import {
   getDatabase,

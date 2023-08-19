@@ -13,17 +13,22 @@ exports.attachFees = (gres: any) => {
   return gres
 }
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const { origin, destination } = req.body
   calculateRoute(origin, destination)
     .then((gres: Response) => gres.json())
     .then((gres: any) => {
       res.send(exports.attachFees(gres))
     })
+    .catch((err: any) => next(err))
 })
 
-router.get('/geocode/:address', async (req, res) => {
-  geocode(req.params.address).then((gres: Response) => res.send(gres))
+router.get('/geocode/:address', async (req, res, next) => {
+  geocode(req.params.address)
+    .then((gres: Response) => res.send(gres))
+    .catch((err: any) => {
+      next(err)
+    })
 })
 
 export default router
