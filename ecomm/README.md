@@ -26,7 +26,3 @@ This app follows atomic design principles, with file separation as follows:
 - `/src/hooks` - all custom hooks
 - `/src/pages` - all unique pages
 - `/src/styles` - global CSS and UI library theming
-
-## Styling
-
-This app uses the [Mantine React Components Library](https://mantine.dev/) as basis for all UI.
