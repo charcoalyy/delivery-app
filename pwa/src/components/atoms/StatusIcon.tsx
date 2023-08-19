@@ -8,20 +8,20 @@ const StatusIcon = ({ status }: { status: 'past' | 'now' | 'future' }) => {
       case 'past':
         return (
           <ActionIcon variant="transparent" radius="xl" size="xs" color="blue">
-            <IconCircle size="small" />
+            <IconCircle />
           </ActionIcon>
         )
       case 'now':
         return (
           <ActionIcon variant="light" radius="xl" size="xs" color="blue">
-            <IconCircleFilled size="small" />
+            <IconCircleFilled />
           </ActionIcon>
         )
       case 'future':
       default:
         return (
           <ActionIcon variant="transparent" radius="xl" size="xs" color="gray">
-            <IconCircleFilled size="small" />
+            <IconCircleFilled />
           </ActionIcon>
         )
     }

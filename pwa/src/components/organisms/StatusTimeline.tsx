@@ -27,12 +27,13 @@ const timelineConfig = [
 ]
 
 const StatusTimeline = ({ data }: { data: any }) => {
-  const progress = useMemo(() => data.progress, data) // TODO: set to data
+  const progress = useMemo(() => data.progress, [data]) // TODO: set to data
 
   const renderItems = useMemo(
     () =>
       timelineConfig.map((status, i) => (
         <Timeline.Item
+          key={status.title}
           bullet={
             <StatusIcon
               status={i === progress ? 'now' : i < progress ? 'past' : 'future'}
