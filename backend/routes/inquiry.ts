@@ -1,5 +1,6 @@
 import { Router, Response } from 'express'
-const { geocode, calculateRoute } = require('../utils/google-maps')
+import { createQuote } from '../controllers/inquiry'
+const { geocode } = require('../utils/google-maps')
 const router = Router()
 
 const calculateFee = (dist: number) => {
@@ -15,11 +16,7 @@ exports.attachFees = (gres: any) => {
 
 router.post('/', (req, res) => {
   const { origin, destination } = req.body
-  calculateRoute(origin, destination)
-    .then((gres: Response) => gres.json())
-    .then((gres: any) => {
-      res.send(exports.attachFees(gres))
-    })
+  createQuote(origin, destination)
 })
 
 router.get('/geocode/:address', async (req, res) => {

@@ -2,19 +2,17 @@ export function geocode(address: string) {
   return fetch(
     `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_MAPS_API_KEY}`
   )
-    .then((response) => response.json())
-    .then((response) => {
-      const best = response.results[0]
-      const fullAddress = best.formatted_address
-      const location = best.geometry.location
-      return { address: fullAddress, location: location }
+    .then((res) => res.json())
+    .then((res) => {
+      const best = res.results[0]
+      return {
+        address: best.formatted_address,
+        location: best.geometry.location,
+      }
     })
 }
 
-export function route(
-  origin: { lat: string; lng: string },
-  dest: { lat: string; lng: string }
-) {
+export function route(origin: any, dest: any) {
   return fetch(`https://routes.googleapis.com/directions/v2:computeRoutes`, {
     method: 'POST',
     headers: {
@@ -48,5 +46,10 @@ export function route(
       },
       units: 'METRIC',
     }),
-  }).then((gres) => gres)
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res)
+      return res
+    })
 }
