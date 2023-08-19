@@ -1,10 +1,7 @@
-import { getStatus } from '@api/status'
-import ActionButton from '@atoms/ActionButton'
 import StatusIcon from '@atoms/StatusIcon'
-import useRequest from '@hooks/useRequest'
 import { Flex, Timeline } from '@mantine/core'
 import TimelineText from '@molecules/TimelineText'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 const timelineConfig = [
   {
@@ -29,13 +26,8 @@ const timelineConfig = [
   },
 ]
 
-const StatusTimeline = () => {
-  const data = useRequest({
-    request: getStatus,
-    requestByDefault: true,
-  })
-
-  const [progress, setProgress] = useState(2) // TODO: set to data
+const StatusTimeline = ({ data }: { data: any }) => {
+  const progress = useMemo(() => data.progress, data) // TODO: set to data
 
   const renderItems = useMemo(
     () =>
@@ -68,7 +60,6 @@ const StatusTimeline = () => {
       <Timeline active={0} bulletSize={0} lineWidth={1} color="gray">
         {renderItems}
       </Timeline>
-      <ActionButton text="Track my delivery" />
     </Flex>
   )
 }

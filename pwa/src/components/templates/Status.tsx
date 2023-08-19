@@ -1,8 +1,9 @@
+import ActionButton from '@atoms/ActionButton'
 import { Flex } from '@mantine/core'
 import Header from '@molecules/Header'
 import StatusTimeline from '@organisms/StatusTimeline'
 
-const Status = () => {
+const Status = ({ data, action }: { data: any; action: () => void }) => {
   return (
     <Flex
       direction="column"
@@ -16,7 +17,8 @@ const Status = () => {
     >
       <Header title="Delivery Status" subtitle={`Tracking ID: PLACEHOLDER`} />
       <img width="130px" height="130px" src="/images/car.png"></img>
-      <StatusTimeline />
+      <StatusTimeline data={data} />
+      <ActionButton text="Track my delivery" handleClick={action} />
     </Flex>
   )
 }
