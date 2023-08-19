@@ -1,57 +1,30 @@
 import { useState } from 'react'
-import {
-  Navbar,
-  Center,
-  Tooltip,
-  UnstyledButton,
-  createStyles,
-  Stack,
-  rem,
-  Flex,
-} from '@mantine/core'
+import { Navbar, Flex } from '@mantine/core'
 import {
   IconHome2,
-  IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
-  IconUser,
+  IconBox,
+  IconMessage,
   IconSettings,
 } from '@tabler/icons-react'
+import NavbarIcon from '@atoms/NavbarIcon'
 
-interface NavbarProps {
-  icon: React.FC<any>
-  label: string
-  active?: boolean
-  onClick?(): void
-}
-
-const NavbarLink = ({ icon: Icon, label, onClick }: NavbarProps) => {
-  return (
-    <Tooltip label={label} position="bottom">
-      <UnstyledButton onClick={onClick}>
-        <Icon size="1.2rem" stroke={1.5} />
-      </UnstyledButton>
-    </Tooltip>
-  )
-}
-
-const tabs = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-  { icon: IconCalendarStats, label: 'Releases' },
+const userTabs = [
+  { icon: IconHome2, label: 'Home', nav: '' },
+  { icon: IconBox, label: 'My Packages', nav: 'track' },
+  { icon: IconMessage, label: 'Messages', nav: 'messages' },
+  { icon: IconSettings, label: 'Settings', nav: '' },
 ]
 
 const NavbarFooter = () => {
-  const [active, setActive] = useState(0)
+  var url = location.href.split('/')
+  const [active, setActive] = useState(url[url.length - 1])
 
-  const links = tabs.map((tab, index) => (
-    <NavbarLink
+  const navTabs = userTabs.map((tab) => (
+    <NavbarIcon
       {...tab}
       key={tab.label}
-      active={index === active}
-      onClick={() => setActive(index)}
+      active={tab.nav === active}
+      handleActive={() => setActive(tab.nav)}
     />
   ))
 
@@ -60,7 +33,6 @@ const NavbarFooter = () => {
       width={{ base: '390px' }}
       height="68px"
       sx={{
-        border: '1px solid red',
         backgroundColor: 'blue',
         position: 'absolute',
       }}
@@ -69,10 +41,10 @@ const NavbarFooter = () => {
         <Flex
           justify="center"
           align="center"
-          gap="66px"
+          gap="60px"
           sx={{ height: '100%' }}
         >
-          {links}
+          {navTabs}
         </Flex>
       </Navbar.Section>
     </Navbar>
