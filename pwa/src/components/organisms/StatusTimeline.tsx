@@ -1,4 +1,5 @@
 import { getStatus } from '@api/status'
+import ActionButton from '@atoms/ActionButton'
 import StatusIcon from '@atoms/StatusIcon'
 import useRequest from '@hooks/useRequest'
 import { Flex, Timeline } from '@mantine/core'
@@ -67,6 +68,7 @@ const StatusTimeline = () => {
       <Timeline active={0} bulletSize={0} lineWidth={1} color="gray">
         {renderItems}
       </Timeline>
+      <ActionButton text="Track my delivery" />
     </Flex>
   )
 }
