@@ -35,7 +35,7 @@ const Hero = () => {
         </Text>
       </Flex>
       <img
-        src="images/truck.png"
+        src="images/white_car.png"
         style={{ position: 'relative', left: 200, top: -300 }}
         width="250px"
         height="250px"

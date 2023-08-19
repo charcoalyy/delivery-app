@@ -7,16 +7,14 @@ interface GetProps {
 }
 
 export const get = async ({ url, params }: GetProps) => {
-  console.log(new URLSearchParams('id'))
   if (params) {
     url += '?' + new URLSearchParams(params).toString()
   }
 
   const response = await axios.get(url)
-
   const data = response.data
 
-  if (response.status) {
+  if (response.status === 200) {
     return data
   }
   throw data
@@ -33,7 +31,7 @@ export const post = async ({ url, body }: PostProps) => {
 
   const data = response.data
 
-  if (response.status) {
+  if (response.status === 200) {
     return data
   }
   throw data

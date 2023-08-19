@@ -3,6 +3,8 @@ import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 interface UserContextType {
   type: 'courier' | 'customer'
   changeType: (params: 'courier' | 'customer') => void
+  trackingId: string
+  setTrackingId: (params: string) => void
 }
 
 // creates context object with a default state
@@ -11,10 +13,18 @@ const UserContext = createContext<UserContextType>({} as UserContextType)
 // defines the wrapper whose state is accessible to children
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [userType, setUserType] = useState('' as UserContextType['type'])
+  const [trackingId, setTrackingId] = useState(
+    '' as UserContextType['trackingId']
+  )
 
   const userState = useMemo(
-    () => ({ type: userType, changeType: setUserType }),
-    [userType, setUserType]
+    () => ({
+      type: userType,
+      changeType: setUserType,
+      trackingId: trackingId,
+      setTrackingId: setTrackingId,
+    }),
+    [userType, setUserType, trackingId, setTrackingId]
   )
 
   return (

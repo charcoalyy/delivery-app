@@ -8,7 +8,6 @@ interface getStatusProps {
 export const getStatus = async ({ params }: getStatusProps) => {
   const data = await get({
     url: `${baseURL}/delivery/${params.trackingId}`,
-    // params: params,
   })
   return data
 }

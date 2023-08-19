@@ -6,23 +6,25 @@ import { useMemo } from 'react'
 const timelineConfig = [
   {
     title: 'Order Received',
-    desc: 'From ',
+    desc: 'Package fulfilment at ',
+    desc_data: 'origin',
     time: '1:10pm',
   },
   {
     title: 'On the Way',
-    desc: 'Picked up from XXX, estimated arrival:  ',
+    desc: 'Picked up from retailer, with estimated arrival ',
+    desc_data: 'estimatedArrival',
     time: '1:36pm',
   },
   {
     title: 'Delivered',
-    desc: 'Arrived on: ',
+    desc: 'Arrived on pending',
     time: '-',
   },
 ]
 
 const StatusTimeline = ({ data }: { data: any }) => {
-  const progress = useMemo(() => data.progress, [data]) // TODO: set to data
+  const progress = useMemo(() => data.progress, [data])
 
   const renderItems = useMemo(
     () =>
@@ -40,15 +42,19 @@ const StatusTimeline = ({ data }: { data: any }) => {
             borderTop: '1px solid transparent',
             marginBottom: '28px',
             maxWidth: '220px',
+            opacity: i > progress ? 0.55 : 1,
           }}
         >
           <TimelineText
             status={status.title}
-            desc={`${status.desc} XXX`}
-            time={status.time} // TODO: replace with API data
+            desc={`${status.desc} ${
+              status.desc_data ? data[status.desc_data] : ''
+            }`}
+            time={status.time}
           />
         </Timeline.Item>
       )),
+
     [data]
   )
 
