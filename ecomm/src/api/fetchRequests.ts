@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 interface GetProps {
   url: string
   params?: any
@@ -9,21 +11,12 @@ export const get = async ({ url, params }: GetProps) => {
     url += '?' + new URLSearchParams(params).toString()
   }
 
-  const response = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:8080',
-    },
-    method: 'GET',
-    mode: 'no-cors',
-  })
+  const response = await axios.get(url)
 
-  const data = await response.json()
-
-  if (response.ok) {
-    return data
+  if (response.status) {
+    return response.data
   }
-  throw data
+  throw response.data
 }
 
 interface PostProps {
@@ -33,18 +26,9 @@ interface PostProps {
 }
 
 export const post = async ({ url, body }: PostProps) => {
-  const response = await fetch(url, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify(body),
-  })
+  const data = await axios.post(url, body)
 
-  const data = await response.json()
-
-  if (response.ok) {
+  if (data) {
     console.log('ok!')
     return data
   }
