@@ -19,11 +19,8 @@ This app follows atomic design principles, with file separation as follows:
 
 - `/src/api` - all API calls
 - `/src/components` - all page components
-  - `src/components/atoms` - reusable singular elements with custom visuals
   - `src/components/forms` - all form content and submission logic, recommended integration with [react-hook-form](https://www.react-hook-form.com/)
-  - `src/components/molecules` - reusable groups of atoms that come in sets
-  - `src/components/organisms` - reusable groups of molecules that appear on templates
-  - `src/components/templates` - reusable wireframes for pages
+  - `src/components/templates` - reusable templates for pages
 - `/src/constants` - global constants, including types
 - `/src/context` - global states
 - `/src/hooks` - all custom hooks
