@@ -3,9 +3,9 @@
 import { Flex } from '@mantine/core'
 import Header from '@molecules/Header'
 import Message from '@molecules/Message'
-import NavbarFooter from '@molecules/Navbar'
 import SendMessage from '@molecules/SendMessage'
 import { useMemo, useState } from 'react'
+import Wrapper from './Wrapper'
 
 const Chat = () => {
   const [messageList, setMessageList] = useState([
@@ -66,16 +66,7 @@ const Chat = () => {
   }, [messageList])
 
   return (
-    <Flex
-      direction="column"
-      align="center"
-      sx={{
-        width: '390px',
-        height: '844px',
-        maxHeight: '844px',
-        border: '1px solid green',
-      }}
-    >
+    <Wrapper>
       <Header title="Jason" subtitle="" />
       <Flex
         direction="column"
@@ -83,7 +74,7 @@ const Chat = () => {
           width: '100%',
           padding: '30px',
           gap: '4px',
-          height: '400px',
+          height: '360px',
           overflowY: 'auto',
         }}
       >
@@ -98,8 +89,7 @@ const Chat = () => {
       >
         <SendMessage update={updateMessages} />
       </Flex>
-      <NavbarFooter />
-    </Flex>
+    </Wrapper>
   )
 }
 

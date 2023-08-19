@@ -23,7 +23,9 @@ const NavbarFooter = () => {
     <NavbarIcon
       {...tab}
       key={tab.label}
-      active={tab.nav === active}
+      active={
+        tab.nav === active || (tab.nav === 'track' && active === 'status')
+      }
       handleActive={() => setActive(tab.nav)}
     />
   ))
