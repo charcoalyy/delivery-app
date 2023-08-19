@@ -7,20 +7,20 @@ const StatusIcon = ({ status }: { status: 'past' | 'now' | 'future' }) => {
     switch (status) {
       case 'past':
         return (
-          <ActionIcon variant="filled" radius="xl" size="sm" color="blue">
+          <ActionIcon variant="filled" radius="xl" size="xs" color="blue">
             <IconCircleFilled size="small" />
           </ActionIcon>
         )
       case 'now':
         return (
-          <ActionIcon variant="filled" radius="xl" size="sm" color="blue">
+          <ActionIcon variant="filled" radius="xl" size="xs" color="blue">
             <IconCircle size="small" />
           </ActionIcon>
         )
       case 'future':
       default:
         return (
-          <ActionIcon variant="subtle" radius="xl" size="sm" color="gray">
+          <ActionIcon variant="subtle" radius="xl" size="xs" color="gray">
             <IconCircleFilled size="small" />
           </ActionIcon>
         )

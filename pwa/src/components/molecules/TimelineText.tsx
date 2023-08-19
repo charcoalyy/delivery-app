@@ -11,7 +11,7 @@ const TimelineText = ({ status, desc, time }: TimelineTextProps) => {
     <Grid
       sx={{
         width: '110%',
-        marginLeft: '30px',
+        marginLeft: '36px',
         marginTop: '-14px',
       }}
     >
