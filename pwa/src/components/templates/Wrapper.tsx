@@ -11,6 +11,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
         width: '390px',
         height: '844px',
         maxHeight: '844px',
+        overflow: 'hidden',
       }}
     >
       <Flex
@@ -20,8 +21,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
           width: '390px',
           height: '766px',
           maxHeight: '766px',
-          border: '1px solid red',
-          overflowY: 'auto',
+          overflow: 'hidden',
         }}
       >
         {children}

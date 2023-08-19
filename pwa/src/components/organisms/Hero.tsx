@@ -17,7 +17,7 @@ const Hero = () => {
         <Title order={1} color="white">
           Product Name
         </Title>
-        <Text color="white">
+        <Text color="white" fz="sm">
           Giving you fast, easy access to your packages by empowering local
           deliverers.
         </Text>

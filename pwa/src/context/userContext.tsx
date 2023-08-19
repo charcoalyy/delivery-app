@@ -13,9 +13,7 @@ const UserContext = createContext<UserContextType>({} as UserContextType)
 // defines the wrapper whose state is accessible to children
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [userType, setUserType] = useState('' as UserContextType['type'])
-  const [trackingId, setTrackingId] = useState(
-    '' as UserContextType['trackingId']
-  )
+  const [trackingId, setTrackingId] = useState('-NcEuahK2_rHhIQxJFdO')
 
   const userState = useMemo(
     () => ({
