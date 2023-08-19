@@ -42,7 +42,7 @@ const StatusTimeline = ({ data }: { data: any }) => {
           sx={{
             padding: 0,
             borderTop: '1px solid transparent',
-            marginBottom: '30px',
+            marginBottom: '28px',
           }}
         >
           <TimelineText

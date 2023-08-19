@@ -13,14 +13,13 @@ const ActionButton = ({
         width: '320px',
         position: 'absolute',
         left: '35px',
-        bottom: '50px',
+        bottom: '86px',
         backgroundColor: 'orange',
         transition: 'all 0.3s',
         zIndex: 2,
 
         '&:hover': {
-          backgroundColor: 'orange',
-          opacity: '0.75',
+          backgroundColor: '#FB7B05',
         },
       }}
       radius="xl"

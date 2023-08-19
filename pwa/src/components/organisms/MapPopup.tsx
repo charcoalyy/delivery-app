@@ -15,8 +15,8 @@ const MapPopup = ({ data }: { data: any }) => {
         gap: '30px',
         backgroundColor: 'blue',
         borderRadius: '20px',
-        position: 'absolute',
-        bottom: '-20px',
+        position: 'relative',
+        bottom: '-180px',
         boxShadow: '0px -6px 14px 0px rgba(0, 0, 0, 0.25)',
       }}
     >
