@@ -5,55 +5,55 @@ import {
   useContext,
   useMemo,
   useState,
-} from "react";
+} from 'react'
 
 interface AuthContextType {
   userInfo: {
-    email: string;
-    username: string;
-  };
-  loggedIn: boolean;
-  login: () => Promise<void>;
-  logout: () => void;
+    email: string
+    username: string
+  }
+  loggedIn: boolean
+  login: () => Promise<void>
+  logout: () => void
 }
 
 // creates context object with a default state
-const AuthContext = createContext<AuthContextType>({} as AuthContextType);
+const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 // defines the wrapper whose state is accessible to children
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [userInfo, setUserInfo] = useState({} as AuthContextType["userInfo"]);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState({} as AuthContextType['userInfo'])
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const login = useCallback(async () => {
     try {
-      // TODO: when login API is defined, replace response with awaiting login API
-      const response: any = { email: "dummy@gmail.com", username: "dummy" };
+      // if login API is defined, replace response with awaiting login API
+      const response: any = { email: 'dummy@gmail.com', username: 'dummy' }
       if (response.ok) {
-        setUserInfo(response);
+        setUserInfo(response)
       }
-      setLoggedIn(true);
+      setLoggedIn(true)
     } catch (err: any) {
-      console.log("Error: ", err);
+      console.log('Error: ', err)
     }
-  }, []);
+  }, [])
 
   const logout = useCallback(() => {
-    setLoggedIn(false);
-    setUserInfo({} as AuthContextType["userInfo"]);
-  }, [setUserInfo]);
+    setLoggedIn(false)
+    setUserInfo({} as AuthContextType['userInfo'])
+  }, [setUserInfo])
 
   const authState = useMemo(
     () => ({ userInfo, loggedIn, login, logout }),
     [userInfo, loggedIn, login, logout]
-  );
+  )
 
   return (
     <AuthContext.Provider value={authState}>{children}</AuthContext.Provider>
-  );
-};
+  )
+}
 
 // allows consumers to use context values
 export default function useAuth() {
-  return useContext(AuthContext);
+  return useContext(AuthContext)
 }

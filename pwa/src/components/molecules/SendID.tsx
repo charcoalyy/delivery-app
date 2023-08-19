@@ -10,7 +10,7 @@ const SendID = () => {
 
   const navigate = useNavigate()
   const { setTrackingId } = useUser()
-  // TODO: set auth to have this ID
+
   return (
     <TextInput
       sx={{ width: '100%' }}
