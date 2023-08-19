@@ -18,7 +18,7 @@ const Information = ({
         <Title mb="16px" order={6} tt="uppercase">
           Order Completion
         </Title>
-        <Title order={2}>Your parcel is on its way!</Title>
+        <Title order={2}>Your package is on its way!</Title>
         <Text>
           Thanks for ordering from cart.it, we hope you love what you receive.
         </Text>

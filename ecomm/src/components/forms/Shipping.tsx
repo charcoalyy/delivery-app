@@ -23,7 +23,7 @@ const Shipping = ({
     validate: validate,
   })
 
-  const { data: trackingId, makeRequest: postShippingJob } = useRequest({
+  const { data: trackingData, makeRequest: postShippingJob } = useRequest({
     request: createShipJob,
     requestByDefault: false,
   })
@@ -66,41 +66,26 @@ const Shipping = ({
   )
 
   useEffect(() => {
-    if (trackingId && routeData) {
+    if (trackingData && routeData) {
       setSubmitted({
-        trackingId: trackingId,
-        fee: routeData.fee,
+        trackingId: trackingData.tracking_number,
+        fee: routeData.routes[0].fee,
       })
     }
-  }, [trackingId, routeData])
+  }, [trackingData, routeData])
+
+  const handleSubmit = (values: any) => {
+    const locations = {
+      origin: '65 Dundas St W, Toronto, ON M5G 2C3',
+      destination: `${values.address}, ${values.city}, ${values.province} ${values.postal_code}`,
+    }
+
+    postShippingJob(locations)
+    requestRouteData(locations)
+  }
 
   return (
-    <form
-      onSubmit={form.onSubmit((values) => {
-        postShippingJob({
-          origin: '65 Dundas St W, Toronto, ON M5G 2C3',
-          destination: `${values.address}, ${values.city}, ${values.province} ${values.postal_code}`,
-        })
-        requestRouteData({
-          origin: '65 Dundas St W, Toronto, ON M5G 2C3',
-          destination: `${values.address}, ${values.city}, ${values.province} ${values.postal_code}`,
-        })
-      })}
-    >
-      <button
-        onClick={() => {
-          postShippingJob({
-            origin: '65 Dundas St W, Toronto, ON M5G 2C3',
-            destination: '245 Church St, Toronto, ON M5B 1Z4',
-          })
-          requestRouteData({
-            origin: '65 Dundas St W, Toronto, ON M5G 2C3',
-            destination: '245 Church St, Toronto, ON M5B 1Z4',
-          })
-        }}
-      >
-        click me
-      </button>
+    <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
       <CenterContainer>
         <Grid.Col span={12}>
           <SegmentedControl

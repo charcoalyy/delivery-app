@@ -13,7 +13,7 @@ export const get = async ({ url, params }: GetProps) => {
 
   const response = await axios.get(url)
 
-  if (response.status) {
+  if (response.status === 200) {
     return response.data
   }
   throw response.data
@@ -28,9 +28,8 @@ interface PostProps {
 export const post = async ({ url, body }: PostProps) => {
   const data = await axios.post(url, body)
 
-  if (data) {
-    console.log('ok!')
-    return data
+  if (data.status === 200) {
+    return data.data
   }
   throw data
 }
