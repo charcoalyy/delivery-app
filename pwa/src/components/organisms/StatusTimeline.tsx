@@ -10,18 +10,13 @@ const timelineConfig = [
     time: '1:10pm',
   },
   {
-    title: 'Picked Up',
-    desc: 'From ',
+    title: 'On the Way',
+    desc: 'Picked up from XXX, estimated arrival:  ',
     time: '1:36pm',
   },
   {
-    title: 'On the Way',
-    desc: 'Estimated time remaining: ',
-    time: '',
-  },
-  {
     title: 'Delivered',
-    desc: 'Estimated time of arrival: ',
+    desc: 'Arrived on: ',
     time: '-',
   },
 ]
@@ -44,6 +39,7 @@ const StatusTimeline = ({ data }: { data: any }) => {
             padding: 0,
             borderTop: '1px solid transparent',
             marginBottom: '28px',
+            maxWidth: '220px',
           }}
         >
           <TimelineText
