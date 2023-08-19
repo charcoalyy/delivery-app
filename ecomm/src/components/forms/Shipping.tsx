@@ -6,11 +6,51 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import CenterContainer from "@templates/CenterContainer";
+import { useMemo } from "react";
+import { formConfig, initialValues, validate } from "./constants";
 
 const Shipping = () => {
+  const form = useForm({
+    initialValues: initialValues,
+    validate: validate,
+  });
+
+  const formElements = useMemo(
+    () =>
+      formConfig.map((config) => {
+        switch (config.type) {
+          case "select":
+            return (
+              <Grid.Col span={config.col} key={config.formProps}>
+                <Select
+                  withinPortal
+                  data={config.options || []}
+                  placeholder={config.placeholder}
+                  label={config.label}
+                  {...form.getInputProps("country")}
+                />
+              </Grid.Col>
+            );
+          case "text":
+          default:
+            return (
+              <Grid.Col span={config.col} key={config.formProps}>
+                <TextInput
+                  label={config.label}
+                  placeholder={config.placeholder}
+                  {...form.getInputProps(config.formProps)}
+                />
+              </Grid.Col>
+            );
+        }
+      }),
+    [form]
+  );
+
   return (
-    <form>
+    <form onSubmit={form.onSubmit((values) => console.log(values))}>
       <CenterContainer>
         <Grid.Col span={12}>
           <SegmentedControl
@@ -27,38 +67,14 @@ const Shipping = () => {
             Shipping Address
           </Title>
         </Grid.Col>
-        <Grid.Col span={6}>
-          <TextInput label="First Name" placeholder="John" />
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <TextInput label="Last Name" placeholder="Doe" />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <Select
-            withinPortal
-            data={["Canada", "United States", "United Kingdom"]}
-            placeholder="Canada"
-            label="Country"
-          />
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <TextInput label="State/Province" placeholder="Ontario" />
-        </Grid.Col>
-        <Grid.Col span={6}>
-          {" "}
-          <TextInput label="City/Town" placeholder="Toronto" />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <TextInput label="Address" placeholder="245 Church St" />
-        </Grid.Col>
-        <Grid.Col span={12}>
-          <TextInput label="Postal Code" placeholder="M5B 1Z4" />
-        </Grid.Col>
+        {formElements}
         <Grid.Col
           span={12}
           sx={{ display: "flex", justifyContent: "flex-end" }}
         >
-          <Button color="violet">Submit</Button>
+          <Button color="violet" type="submit">
+            Submit
+          </Button>
         </Grid.Col>
       </CenterContainer>
     </form>

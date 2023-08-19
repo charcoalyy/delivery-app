@@ -1,4 +1,4 @@
-import Home from "@pages/Home";
+import Home from "@pages/Checkout";
 import NotFound from "@pages/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
