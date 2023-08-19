@@ -1,5 +1,5 @@
 import ActionButton from '@atoms/ActionButton'
-import { Flex } from '@mantine/core'
+import { Flex, Navbar } from '@mantine/core'
 import Header from '@molecules/Header'
 import StatusTimeline from '@organisms/StatusTimeline'
 
@@ -19,6 +19,7 @@ const Status = ({ data, action }: { data: any; action: () => void }) => {
       <img width="130px" height="130px" src="/images/car.png"></img>
       <StatusTimeline data={data} />
       <ActionButton text="Track my delivery" handleClick={action} />
+      <Navbar />
     </Flex>
   )
 }

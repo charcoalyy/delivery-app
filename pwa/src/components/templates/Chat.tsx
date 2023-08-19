@@ -3,6 +3,7 @@
 import { Flex } from '@mantine/core'
 import Header from '@molecules/Header'
 import Message from '@molecules/Message'
+import NavbarFooter from '@molecules/Navbar'
 import SendMessage from '@molecules/SendMessage'
 import { useMemo, useState } from 'react'
 
@@ -97,6 +98,7 @@ const Chat = () => {
       >
         <SendMessage update={updateMessages} />
       </Flex>
+      <NavbarFooter />
     </Flex>
   )
 }
