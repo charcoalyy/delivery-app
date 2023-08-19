@@ -1,9 +1,12 @@
 import { Router, Response } from 'express'
-const { addressAutoFill } = require('../utils/google-maps')
+const { addressAutoFill, calculateRoute } = require('../utils/google-maps')
 const router = Router()
 
 router.post('/', (req, res) => {
-  // what does the client pass in here?
+  const { originPlaceId, destinationPlaceId } = req.body
+  calculateRoute(originPlaceId, destinationPlaceId).then((gres: Response) =>
+    res.send(gres)
+  )
 })
 
 router.get('/address-autofill/:address', async (req, res) => {
