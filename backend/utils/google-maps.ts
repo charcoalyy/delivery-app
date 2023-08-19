@@ -1,20 +1,17 @@
-exports.geocode = async (address: string) => {
+export function geocode(address: string) {
   return fetch(
     `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_MAPS_API_KEY}`
   )
-    .then((gres) => gres.json())
-    .then((gres) => {
-      const best = gres.results[0]
+    .then((response) => response.json())
+    .then((response) => {
+      const best = response.results[0]
       const fullAddress = best.formatted_address
       const location = best.geometry.location
       return { address: fullAddress, location: location }
     })
 }
 
-exports.calculateRoute = async (origin: string, destination: string) => {
-  const originLocation = await exports.geocode(origin)
-  const destinationLocation = await exports.geocode(destination)
-
+export function route(origin: object, dest: object) {
   return fetch(`https://routes.googleapis.com/directions/v2:computeRoutes`, {
     method: 'POST',
     headers: {
@@ -27,16 +24,16 @@ exports.calculateRoute = async (origin: string, destination: string) => {
       origin: {
         location: {
           latLng: {
-            latitude: originLocation.location.lat,
-            longitude: originLocation.location.lng,
+            latitude: origin.lat,
+            longitude: origin.lng,
           },
         },
       },
-      destination: {
+      dest: {
         location: {
           latLng: {
-            latitude: destinationLocation.location.lat,
-            longitude: destinationLocation.location.lng,
+            latitude: dest.lat,
+            longitude: dest.lng,
           },
         },
       },

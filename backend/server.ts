@@ -1,24 +1,12 @@
-import { initializeApp } from 'firebase/app'
-import { getDatabase } from 'firebase/database'
 import express, { Express, Request, Response } from 'express'
 import 'dotenv/config'
-
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: 'delivery-app-396404.firebaseapp.com',
-  projectId: 'delivery-app-396404',
-  storageBucket: 'delivery-app-396404.appspot.com',
-  messagingSenderId: '815958744625',
-  appId: '1:815958744625:web:3cfa2974ac35425d553f10',
-  measurementId: 'G-W97EH7KT2M',
-  databaseURL: 'https://delivery-app-396404-default-rtdb.firebaseio.com/',
+import firebase from './utils/firebase'
+if (firebase) {
+  console.log('Connected to Firebase')
 }
 
-const firebase = initializeApp(firebaseConfig)
-const database = getDatabase(firebase)
-
 import inquiry from './routes/inquiry'
-import delivery from './routes/delivery'
+import delivery from './routes/shipment'
 
 const app: Express = express()
 app.use(express.json())
