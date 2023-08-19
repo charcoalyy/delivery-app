@@ -1,3 +1,5 @@
+const polyline = require('google-polyline')
+
 exports.geocode = async (address: string) => {
   return fetch(
     `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_MAPS_API_KEY}`
@@ -52,4 +54,8 @@ exports.calculateRoute = async (origin: string, destination: string) => {
       units: 'METRIC',
     }),
   }).then((gres) => gres)
+}
+
+exports.decodePolyline = (encodedPl: string) => {
+  return polyline.decode(encodedPl)
 }
