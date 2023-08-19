@@ -1,6 +1,6 @@
-# Delivery App PWA
+# Mock eCommerce Platform
 
-A progressive web app that allows delivery drivers and users to interface, track delivery details, and communicate.
+This mock eCommerce platform utilizes the {INSERT FINAL PRODUCT NAME} API to calculate shipping, and, if local delivery is viable, creates job offers to delivery drivers.
 
 ## Development
 
