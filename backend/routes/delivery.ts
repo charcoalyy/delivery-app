@@ -20,6 +20,10 @@ const createNewShipment = (origin: string, destination: string) => {
   const tracking = calculateRoute(origin, destination)
     .then((gres: Response) => gres.json())
     .then((gres: any) => {
+      gres = attachFees(gres)
+      if (gres.routes.length < 1) {
+        throw new Error('No routes found')
+      }
       const best = attachFees(gres).routes[0]
 
       const shipmentListRef = ref(database, 'shipments')
@@ -57,9 +61,9 @@ const getShipment = (tracking: string) => {
 
 router.post('/', async (req, res) => {
   const { origin, destination } = req.body
-  const id = await createNewShipment(origin, destination)
-
-  res.json({ tracking_number: id })
+  createNewShipment(origin, destination).then((id: any) =>
+    res.json({ tracking_number: id })
+  )
 })
 
 router.get('/:tracking', async (req, res) => {
