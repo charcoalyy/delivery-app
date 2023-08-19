@@ -21,7 +21,7 @@ export function route(
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': `${process.env.GOOGLE_MAPS_API_KEY}`,
       'X-Goog-FieldMask':
-        'routes.distanceMeters,routes.polyline.encodedPolyline',
+        'routes.distanceMeters,routes.duration,routes.polyline.encodedPolyline',
     },
     body: JSON.stringify({
       origin: {
