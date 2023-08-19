@@ -7,6 +7,10 @@ interface NavbarProps {
   active: boolean
   handleActive: () => void
   nav: string
+  palette: {
+    active: string
+    inactive: string
+  }
 }
 
 const NavbarIcon = ({
@@ -15,6 +19,7 @@ const NavbarIcon = ({
   nav,
   active,
   handleActive,
+  palette,
 }: NavbarProps) => {
   const navigate = useNavigate()
   return (
@@ -26,11 +31,14 @@ const NavbarIcon = ({
         handleActive()
       }}
     >
-      <ActionIcon variant="transparent" color={active ? 'orange' : 'white'}>
+      <ActionIcon
+        variant="transparent"
+        color={active ? palette.active : palette.inactive}
+      >
         <Icon />
       </ActionIcon>
       <Text
-        color={active ? 'orange' : 'white'}
+        color={active ? palette.active : palette.inactive}
         sx={{ fontSize: '8px' }}
         align="center"
       >

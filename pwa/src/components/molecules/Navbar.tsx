@@ -27,6 +27,10 @@ const NavbarFooter = () => {
         tab.nav === active || (tab.nav === 'track' && active === 'status')
       }
       handleActive={() => setActive(tab.nav)}
+      palette={{
+        active: tab.nav === 'track' ? 'orange' : 'blue',
+        inactive: tab.nav === 'track' ? 'gray' : 'gray',
+      }}
     />
   ))
 
@@ -35,8 +39,9 @@ const NavbarFooter = () => {
       width={{ base: '390px' }}
       height="68px"
       sx={{
-        backgroundColor: 'blue',
+        backgroundColor: active === ('track' || 'chat') ? 'blue' : '#F9F9F9',
         position: 'absolute',
+        boxShadow: '0px -4px 6px 0px rgba(169, 169, 169, 0.25)',
       }}
     >
       <Navbar.Section grow>

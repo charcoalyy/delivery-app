@@ -15,11 +15,11 @@ const TimelineText = ({ status, desc, time }: TimelineTextProps) => {
         marginTop: '-14px',
       }}
     >
-      <Grid.Col span={11} sx={{ padding: 0 }}>
+      <Grid.Col span={10} sx={{ padding: 0 }}>
         <Title order={3}>{status}</Title>
         <Text fz="xs">{desc}</Text>
       </Grid.Col>
-      <Grid.Col span={1} sx={{ padding: 0 }}>
+      <Grid.Col span={1} offset={1} sx={{ padding: 0 }}>
         <Text fz="xs">{time}</Text>
       </Grid.Col>
       <Grid.Col span={12}></Grid.Col>
