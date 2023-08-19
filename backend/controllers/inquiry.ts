@@ -5,11 +5,11 @@ export function calculateFee(distance: number) {
 }
 
 export function createQuote(origin: any, dest: any) {
-  origin = geocode(origin).then((res: any) => res)
-  dest = geocode(dest).then((res: any) => res)
-  console.log(origin)
+  const origin_ = geocode(origin).then((res: any) => res)
+  const dest_ = geocode(dest).then((res: any) => res)
+  console.log(origin_)
 
-  route(origin.location, dest.location).then((res: any) => {
+  route(origin_.location, dest_.location).then((res: any) => {
     res.fee = calculateFee(res.distanceMeters)
     console.log(res)
   })
