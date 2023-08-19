@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase } from 'firebase/database'
 import express, { Express, Request, Response, response } from 'express'
+const cors = require('cors')
 import 'dotenv/config'
 
 const firebaseConfig = {
@@ -22,6 +23,8 @@ import delivery from './routes/delivery'
 
 const app: Express = express()
 app.use(express.json())
+
+app.use(cors({ origin: '*' }))
 
 // routes
 
