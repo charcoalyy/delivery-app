@@ -1,5 +1,5 @@
 import Back from '@atoms/Back'
-import { Box, Flex, Grid, Title } from '@mantine/core'
+import { Flex, Title } from '@mantine/core'
 
 interface HeaderProps {
   title: string
@@ -12,12 +12,10 @@ const Header = ({ title, subtitle }: HeaderProps) => {
       <Back />
       <Flex
         direction="column"
-        sx={{
-          position: 'relative',
-          top: '72px', // temp until header is implemented
-        }}
         justify="center"
         align="center"
+        mt="72px"
+        mb="26px"
       >
         <Title order={1}>{title}</Title>
         <Title order={2}>{subtitle}</Title>
