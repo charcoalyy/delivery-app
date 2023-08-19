@@ -57,6 +57,7 @@ const getShipment = (tracking: string) => {
 
 router.post('/', async (req, res) => {
   const { origin, destination } = req.body
+  console.log(req.body)
   const id = await createNewShipment(origin, destination)
 
   res.json({ tracking_number: id })
