@@ -8,7 +8,7 @@ interface MapCenter {
 
 export default function Index() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
+    googleMapsApiKey: "AIzaSyCzg1MFFfx7ieuTJKYnTSGe65x4ft33CFw",
   });
 
   if (!isLoaded) return <div>Loading...</div>;
@@ -21,8 +21,12 @@ function Map() {
   const mapContainerClassName = "map-container";
 
   return (
-    <GoogleMap zoom={10} center={center} mapContainerClassName={mapContainerClassName}>
-      <Marker position={center} />
+    <GoogleMap zoom={10}
+    center={center} 
+    mapContainerStyle={{width: "1000px", height: "1000px"}} 
+    > 
+    // mapContainerClassName={mapContainerClassName} 
+    <Marker position={center} />
     </GoogleMap>
-  );
+  )
 }
