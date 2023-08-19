@@ -21,7 +21,7 @@ const MapPopup = ({ data }: { data: any }) => {
       }}
     >
       <Person />
-      <Locations data={data} />
+      {data && <Locations data={data} />}
     </Flex>
   )
 }

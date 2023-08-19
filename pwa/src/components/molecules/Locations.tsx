@@ -16,7 +16,7 @@ const Locations = ({ data }: { data: any }) => {
             From
           </Text>
           <Text weight="400" fz="xs" color="white">
-            XXX
+            {data.origin}
           </Text>
         </Flex>
       </Grid.Col>
@@ -32,7 +32,7 @@ const Locations = ({ data }: { data: any }) => {
             To
           </Text>
           <Text weight="400" fz="xs" color="white">
-            XXX
+            {data.destination}
           </Text>
         </Flex>
       </Grid.Col>
