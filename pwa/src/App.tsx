@@ -3,6 +3,7 @@ import DeliveryTrack from '@pages/DeliveryTrack'
 import Home from '@pages/Home'
 import Messages from '@pages/Messages'
 import NotFound from '@pages/NotFound'
+import Index from '@pages/index'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
         <Route path="/status" element={<DeliveryStatus />} />
         <Route path="/track" element={<DeliveryTrack />} />
         <Route path="/messages" element={<Messages />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Index />} />
       </Routes>
     </Router>
   )
