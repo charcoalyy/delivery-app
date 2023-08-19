@@ -3,6 +3,7 @@ import 'dotenv/config'
 import inquiry from './routes/inquiry'
 
 const app: Express = express()
+app.use(express.json())
 
 // routes
 app.use('/inquiry', inquiry)
