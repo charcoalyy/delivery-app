@@ -29,8 +29,9 @@ const createNewShipment = (origin: string, destination: string) => {
         destination: destination,
         polyline: best.polyline.encodedPolyline,
         distanceMeters: best.distanceMeters,
+        estimatedArrival: '2023-08-21',
         fee: best.fee,
-        status: 'ready',
+        status: 'order received',
       })
 
       return newShipmentRef.key
