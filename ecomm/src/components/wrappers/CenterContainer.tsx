@@ -9,6 +9,7 @@ const CenterContainer = ({ children }: { children: ReactNode }) => {
         padding: theme.spacing.xl,
         borderRadius: theme.radius.sm,
         width: "50vw",
+        height: "90vh",
       })}
     >
       {children}

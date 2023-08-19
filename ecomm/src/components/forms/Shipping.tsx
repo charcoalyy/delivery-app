@@ -7,14 +7,21 @@ import {
   Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import CenterContainer from "@templates/CenterContainer";
+import CenterContainer from "src/components/wrappers/CenterContainer";
 import { useMemo } from "react";
 import { formConfig, initialValues, validate } from "./constants";
+import useRequest from "@hooks/useRequest";
+import { postShipping } from "@api/shipping";
 
-const Shipping = () => {
+const Shipping = ({ setSubmitted }: { setSubmitted: () => void }) => {
   const form = useForm({
     initialValues: initialValues,
     validate: validate,
+  });
+
+  const { makeRequest } = useRequest({
+    request: postShipping,
+    requestByDefault: false,
   });
 
   const formElements = useMemo(
@@ -50,7 +57,12 @@ const Shipping = () => {
   );
 
   return (
-    <form onSubmit={form.onSubmit((values) => console.log(values))}>
+    <form
+      onSubmit={form.onSubmit((values) => {
+        makeRequest(values);
+        setSubmitted();
+      })}
+    >
       <CenterContainer>
         <Grid.Col span={12}>
           <SegmentedControl
