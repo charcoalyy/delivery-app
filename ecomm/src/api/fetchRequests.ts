@@ -36,7 +36,6 @@ export const post = async ({ url, body }: PostProps) => {
   const response = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:8080',
     },
     method: 'POST',
     mode: 'no-cors',
