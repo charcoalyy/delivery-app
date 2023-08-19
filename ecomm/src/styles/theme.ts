@@ -7,5 +7,4 @@ export const theme: MantineThemeOverride = {
   colors: {
     grey: ["#f7f8fb", "#b31212", "#ff5757"],
   },
-  spacing: {},
 };

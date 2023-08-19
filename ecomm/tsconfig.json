@@ -13,10 +13,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      "@atoms/*": ["src/components/atoms/*"],
       "@forms/*": ["src/components/forms/*"],
-      "@molecules/*": ["src/components/molecules/*"],
-      "@organisms/*": ["src/components/organisms/*"],
       "@templates/*": ["src/components/templates/*"]
     },
 

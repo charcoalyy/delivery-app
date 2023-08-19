@@ -6,18 +6,12 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
+import CenterContainer from "@templates/CenterContainer";
 
 const Shipping = () => {
   return (
     <form>
-      <Grid
-        sx={(theme) => ({
-          backgroundColor: theme.colors.grey[0],
-          padding: theme.spacing.xl,
-          borderRadius: theme.radius.sm,
-          width: "50vw",
-        })}
-      >
+      <CenterContainer>
         <Grid.Col span={12}>
           <SegmentedControl
             fullWidth
@@ -64,9 +58,9 @@ const Shipping = () => {
           span={12}
           sx={{ display: "flex", justifyContent: "flex-end" }}
         >
-          <Button>Submit</Button>
+          <Button color="violet">Submit</Button>
         </Grid.Col>
-      </Grid>
+      </CenterContainer>
     </form>
   );
 };
