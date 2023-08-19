@@ -8,23 +8,27 @@ import {
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import CenterContainer from 'src/components/wrappers/CenterContainer'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { formConfig, initialValues, validate } from './constants'
 import useRequest from '@hooks/useRequest'
-import { postShipping, shippingInquiry } from '@api/shipping'
+import { createShipJob, shippingInquiry } from '@api/shipping'
 
-const Shipping = ({ setSubmitted }: { setSubmitted: () => void }) => {
+const Shipping = ({
+  setSubmitted,
+}: {
+  setSubmitted: (params: any) => void
+}) => {
   const form = useForm({
     initialValues: initialValues,
     validate: validate,
   })
 
-  const { makeRequest: postShippingJob } = useRequest({
-    request: postShipping,
+  const { data: trackingId, makeRequest: postShippingJob } = useRequest({
+    request: createShipJob,
     requestByDefault: false,
   })
 
-  const { makeRequest: getShippingInquiry } = useRequest({
+  const { data: routeData, makeRequest: requestRouteData } = useRequest({
     request: shippingInquiry,
     requestByDefault: false,
   })
@@ -61,6 +65,15 @@ const Shipping = ({ setSubmitted }: { setSubmitted: () => void }) => {
     [form]
   )
 
+  useEffect(() => {
+    if (trackingId && routeData) {
+      setSubmitted({
+        trackingId: trackingId,
+        fee: routeData.fee,
+      })
+    }
+  }, [trackingId, routeData])
+
   return (
     <form
       onSubmit={form.onSubmit((values) => {
@@ -68,28 +81,25 @@ const Shipping = ({ setSubmitted }: { setSubmitted: () => void }) => {
           origin: '65 Dundas St W, Toronto, ON M5G 2C3',
           destination: `${values.address}, ${values.city}, ${values.province} ${values.postal_code}`,
         })
-        setSubmitted()
+        requestRouteData({
+          origin: '65 Dundas St W, Toronto, ON M5G 2C3',
+          destination: `${values.address}, ${values.city}, ${values.province} ${values.postal_code}`,
+        })
       })}
     >
       <button
-        onClick={() =>
+        onClick={() => {
           postShippingJob({
             origin: '65 Dundas St W, Toronto, ON M5G 2C3',
             destination: '245 Church St, Toronto, ON M5B 1Z4',
           })
-        }
-      >
-        click me
-      </button>
-      <button
-        onClick={() =>
-          getShippingInquiry({
+          requestRouteData({
             origin: '65 Dundas St W, Toronto, ON M5G 2C3',
             destination: '245 Church St, Toronto, ON M5B 1Z4',
           })
-        }
+        }}
       >
-        click me2
+        click me
       </button>
       <CenterContainer>
         <Grid.Col span={12}>

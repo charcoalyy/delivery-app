@@ -1,30 +1,35 @@
-import Shipping from "@forms/Shipping";
-import Information from "@templates/Information";
-import { Flex } from "@mantine/core";
-import { useMemo, useState } from "react";
+import Shipping from '@forms/Shipping'
+import Information from '@templates/Information'
+import { Flex } from '@mantine/core'
+import { useMemo, useState } from 'react'
 
 const Checkout = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<any>(null)
 
   const body = useMemo(() => {
     switch (submitted) {
-      case true:
-        return <Information />;
-      case false:
+      case null:
+      case undefined:
+        return <Shipping setSubmitted={setSubmitted} />
       default:
-        return <Shipping setSubmitted={() => setSubmitted(true)} />;
+        return (
+          <Information
+            trackingId={submitted?.trackingId}
+            fee={submitted?.fee}
+          />
+        )
     }
-  }, [submitted]);
+  }, [submitted])
 
   return (
     <Flex
-      sx={{ width: "100vw", height: "100vh" }}
+      sx={{ width: '100vw', height: '100vh' }}
       justify="center"
       align="center"
     >
       {body}
     </Flex>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

@@ -18,7 +18,7 @@ export const shippingInquiry = async ({ params }: ShippingPostProps) => {
 }
 
 // creates shipping request
-export const postShipping = async ({ params }: ShippingPostProps) => {
+export const createShipJob = async ({ params }: ShippingPostProps) => {
   const data = await post({
     url: `${baseURL}/delivery`,
     body: params,
