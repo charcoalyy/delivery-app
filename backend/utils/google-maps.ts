@@ -11,7 +11,10 @@ export function geocode(address: string) {
     })
 }
 
-export function route(origin: object, dest: object) {
+export function route(
+  origin: { lat: string; lng: string },
+  dest: { lat: string; lng: string }
+) {
   return fetch(`https://routes.googleapis.com/directions/v2:computeRoutes`, {
     method: 'POST',
     headers: {
