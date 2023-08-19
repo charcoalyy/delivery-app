@@ -7,7 +7,7 @@ This mock eCommerce platform utilizes the {INSERT FINAL PRODUCT NAME} API to cal
 To install dependencies, run
 `npm i`
 
-To run the app [locally](http://localhost:5173/), run
+To run the app [locally](http://localhost:3000/), run
 `npm run dev`
 
 To build the environment, run
