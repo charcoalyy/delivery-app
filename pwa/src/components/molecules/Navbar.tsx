@@ -12,7 +12,7 @@ const userTabs = [
   { icon: IconHome2, label: 'Home', nav: '' },
   { icon: IconBox, label: 'My Packages', nav: 'track' },
   { icon: IconMessage, label: 'Messages', nav: 'messages' },
-  { icon: IconSettings, label: 'Settings', nav: '' },
+  { icon: IconSettings, label: 'Settings', nav: 'settings' },
 ]
 
 const NavbarFooter = () => {

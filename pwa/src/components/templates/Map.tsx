@@ -1,5 +1,4 @@
 import ActionButton from '@atoms/ActionButton'
-import { Flex } from '@mantine/core'
 import Header from '@molecules/Header'
 import MapPopup from '@organisms/MapPopup'
 import Wrapper from './Wrapper'

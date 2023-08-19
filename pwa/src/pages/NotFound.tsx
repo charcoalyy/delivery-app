@@ -1,12 +1,13 @@
-import { Flex, Title, Text } from "@mantine/core";
+import { Title, Text } from '@mantine/core'
+import Wrapper from '@templates/Wrapper'
 
 const NotFound = () => {
   return (
-    <Flex direction="column" sx={{ width: "400px" }}>
+    <Wrapper>
       <Title order={1}>Not found</Title>
       <Text>That page doesn't exist.</Text>
-    </Flex>
-  );
-};
+    </Wrapper>
+  )
+}
 
-export default NotFound;
+export default NotFound
