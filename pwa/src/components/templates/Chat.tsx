@@ -4,35 +4,48 @@ import { Flex } from '@mantine/core'
 import Header from '@molecules/Header'
 import Message from '@molecules/Message'
 import SendMessage from '@molecules/SendMessage'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 
 const Chat = () => {
-  const messageList = [
+  const [messageList, setMessageList] = useState([
     {
-      id: '1',
+      id: 1,
       author: 'man',
       timestamp: '03/28/2023',
       body: 'hey man i just stole ur tv haha',
     },
     {
-      id: '2',
+      id: 2,
       author: 'placeholder',
       timestamp: '03/28/2023',
       body: 'bro wtf',
     },
     {
-      id: '3',
+      id: 3,
       author: 'placeholder',
       timestamp: '03/28/2023',
       body: 'aint no way',
     },
     {
-      id: '4',
+      id: 4,
       author: 'man',
       timestamp: '03/29/2023',
       body: 'lol',
     },
-  ] // TODO: set to userrequest
+  ]) // TODO: set to userrequest
+
+  // TODO: set to re-calling request
+  const updateMessages = (message: string) => {
+    setMessageList([
+      ...messageList,
+      {
+        id: messageList.length + 1,
+        author: 'placeholder',
+        body: message,
+        timestamp: '03/29/2023',
+      },
+    ])
+  }
 
   const displayMessages = useMemo(() => {
     if (messageList?.length) {
@@ -82,7 +95,7 @@ const Chat = () => {
           padding: '30px',
         }}
       >
-        <SendMessage />
+        <SendMessage update={updateMessages} />
       </Flex>
     </Flex>
   )

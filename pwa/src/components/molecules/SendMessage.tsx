@@ -5,7 +5,7 @@ import { useForm } from '@mantine/form'
 import { IconSend } from '@tabler/icons-react'
 import { useCallback } from 'react'
 
-const SendMessage = () => {
+const SendMessage = ({ update }: { update: (params: any) => void }) => {
   const form = useForm({
     initialValues: { message: '' },
   })
@@ -18,6 +18,7 @@ const SendMessage = () => {
   const handleSend = useCallback(() => {
     if (form.getTransformedValues().message.length) {
       makeRequest(form.getTransformedValues())
+      update(form.getTransformedValues().message)
     }
   }, [form])
 
