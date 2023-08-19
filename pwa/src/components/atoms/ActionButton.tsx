@@ -1,6 +1,12 @@
 import { Button } from '@mantine/core'
 
-const ActionButton = ({ text }: { text: string }) => {
+const ActionButton = ({
+  text,
+  handleClick,
+}: {
+  text: string
+  handleClick: () => void
+}) => {
   return (
     <Button
       sx={{
@@ -10,6 +16,7 @@ const ActionButton = ({ text }: { text: string }) => {
         bottom: '50px',
         backgroundColor: 'orange',
         transition: 'all 0.3s',
+        zIndex: 2,
 
         '&:hover': {
           backgroundColor: 'orange',
@@ -17,6 +24,7 @@ const ActionButton = ({ text }: { text: string }) => {
         },
       }}
       radius="xl"
+      onClick={handleClick}
     >
       {text}
     </Button>
