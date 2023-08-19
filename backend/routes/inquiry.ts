@@ -1,4 +1,5 @@
-import { Router } from 'express'
+import { Router, Response } from 'express'
+const { addressAutoFill } = require('../utils/google-maps')
 const router = Router()
 
 router.post('/', (req, res) => {
@@ -6,15 +7,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/address-autofill/:address', async (req, res) => {
-  const address = req.params.address
-  const gMapsRes = fetch(
-    `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=${process.env.GOOGLE_MAPS_API_KEY}`
-  )
-    .then((response) => response.json())
-    .then((stuff) => {
-      console.log(stuff)
-      res.send(stuff)
-    })
+  addressAutoFill(req.params.address).then((gres: Response) => res.send(gres))
 })
 
 export default router
