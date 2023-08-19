@@ -50,7 +50,5 @@ exports.calculateRoute = async (origin: string, destination: string) => {
       },
       units: 'METRIC',
     }),
-  })
-    .then((gres) => gres.json())
-    .then((gres) => gres)
+  }).then((gres) => gres)
 }
