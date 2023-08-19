@@ -1,5 +1,5 @@
 import useUser from '@context/userContext'
-import { ActionIcon, Text, TextInput, Tooltip } from '@mantine/core'
+import { ActionIcon, TextInput, Tooltip } from '@mantine/core'
 import { IconSearch } from '@tabler/icons-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'

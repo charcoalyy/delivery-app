@@ -1,7 +1,6 @@
 import useRequest from '@hooks/useRequest'
 import Map from '@templates/Map.tsx'
 import { useNavigate } from 'react-router-dom'
-import { getLocations } from '@api/map'
 import { getStatus } from '@api/status'
 import useUser from '@context/userContext'
 import { useEffect } from 'react'
