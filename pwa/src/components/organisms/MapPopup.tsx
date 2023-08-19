@@ -2,7 +2,7 @@ import { Flex } from '@mantine/core'
 import Locations from '@molecules/Locations'
 import Person from '@molecules/Person'
 
-const MapPopup = () => {
+const MapPopup = ({ data }: { data: any }) => {
   return (
     <Flex
       direction="column"
@@ -21,7 +21,7 @@ const MapPopup = () => {
       }}
     >
       <Person />
-      <Locations />
+      <Locations data={data} />
     </Flex>
   )
 }

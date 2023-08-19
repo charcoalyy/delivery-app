@@ -16,7 +16,7 @@ const Map = ({ data, action }: { data?: any; action: () => void }) => {
       }}
     >
       <Header title="Track My Delivery" subtitle={`Tracking ID: PLACEHOLDER`} />
-      <MapPopup />
+      <MapPopup data={data} />
       <ActionButton text="View Delivery Status" handleClick={action} />
     </Flex>
   )

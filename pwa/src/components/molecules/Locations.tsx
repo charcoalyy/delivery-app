@@ -1,7 +1,7 @@
 import { ActionIcon, Flex, Grid, Text } from '@mantine/core'
 import { IconCircleDotFilled, IconMapPinFilled } from '@tabler/icons-react'
 
-const Locations = () => {
+const Locations = ({ data }: { data: any }) => {
   return (
     <Grid sx={{ width: '100%' }}>
       <Grid.Col span={12} sx={{ display: 'flex', gap: '16px' }}>
