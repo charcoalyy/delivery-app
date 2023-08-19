@@ -5,6 +5,7 @@ import Messages from '@pages/Messages'
 import NotFound from '@pages/NotFound'
 import Index from '@pages/index'
 import Marker from '@pages/markers'
+import Polylines from '@pages/polyline'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
