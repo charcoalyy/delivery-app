@@ -4,7 +4,7 @@ import { Flex } from "@mantine/core";
 import { useMemo, useState } from "react";
 
 const Checkout = () => {
-  const [submitted, setSubmitted] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
   const body = useMemo(() => {
     switch (submitted) {

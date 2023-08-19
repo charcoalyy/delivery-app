@@ -3,8 +3,11 @@ import useRequest from "@hooks/useRequest";
 import { Grid, Title, Text, Button } from "@mantine/core";
 import CenterContainer from "@wrappers/CenterContainer";
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Information = () => {
+  let navigate = useNavigate();
+
   const { data } = useRequest({
     request: getShipping,
     requestByDefault: true,
@@ -22,7 +25,11 @@ const Information = () => {
             Thanks for ordering from cart.it, we hope you love what you receive.
           </Text>
           <Text mt="32px" fz="xs">
-            Estimated delivery date
+            Estimated Delivery Date
+          </Text>
+          <Text>TBD</Text>
+          <Text mt="32px" fz="xs">
+            Tracking Number
           </Text>
           <Text>TBD</Text>
         </Grid.Col>
@@ -42,7 +49,9 @@ const Information = () => {
           alignItems: "flex-end",
         }}
       >
-        <Button color="violet">Keep Shopping</Button>
+        <Button color="violet" onClick={() => navigate("/home")}>
+          Keep Shopping
+        </Button>
       </Grid.Col>
     </CenterContainer>
   );
