@@ -1,5 +1,9 @@
 import { Router, Response } from 'express'
-const { geocode, calculateRoute } = require('../utils/google-maps')
+const {
+  geocode,
+  calculateRoute,
+  decodePolyline,
+} = require('../utils/google-maps')
 const router = Router()
 
 const calculateFee = (dist: number) => {
@@ -30,6 +34,11 @@ router.get('/geocode/:address', async (req, res, next) => {
     .catch((err: any) => {
       next(err)
     })
+})
+
+router.get('/decode-polyline/:encodedPl', (req, res, next) => {
+  const encodedPl = req.params.encodedPl
+  res.send(decodePolyline(encodedPl))
 })
 
 export default router

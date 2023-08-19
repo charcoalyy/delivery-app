@@ -2,6 +2,7 @@ import DeliveryStatus from '@pages/DeliveryStatus'
 import DeliveryTrack from '@pages/DeliveryTrack'
 import Home from '@pages/Home'
 import Messages from '@pages/Messages'
+import Marker from '@pages/Marker'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
         <Route path="/status" element={<DeliveryStatus />} />
         <Route path="/track" element={<DeliveryTrack />} />
         <Route path="/messages" element={<Messages />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<Marker />} />
       </Routes>
     </Router>
   )
