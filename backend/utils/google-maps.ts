@@ -4,6 +4,9 @@ exports.geocode = async (address: string) => {
   )
     .then((gres) => gres.json())
     .then((gres) => {
+      if (gres.results.length < 1) {
+        throw new Error('No results found for ' + address)
+      }
       const best = gres.results[0]
       const fullAddress = best.formatted_address
       const location = best.geometry.location

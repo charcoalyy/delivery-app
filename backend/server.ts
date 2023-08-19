@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase } from 'firebase/database'
-import express, { Express, Request, Response } from 'express'
+import express, { Express, Request, Response, response } from 'express'
 import 'dotenv/config'
 
 const firebaseConfig = {
@@ -24,12 +24,20 @@ const app: Express = express()
 app.use(express.json())
 
 // routes
+
+const errorHandler = (err: any, req: any, res: any, next: any) => {
+  const status = err.status || 400
+  res.status(status).send(err.message)
+}
+
 app.use('/inquiry', inquiry)
 app.use('/delivery', delivery)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server')
 })
+
+app.use(errorHandler)
 
 const port = process.env.PORT || 8080
 app.listen(port, () => {
