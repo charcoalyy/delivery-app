@@ -11,13 +11,13 @@ const MapNavPopup = () => {
       align="center"
       sx={{
         width: '390px',
-        height: '200px',
+        height: '180px',
         padding: '36px 24px',
         gap: '30px',
         backgroundColor: '#FB7B05',
         borderRadius: '20px',
-        position: 'relative',
-        bottom: '-350px',
+        position: 'absolute',
+        bottom: '0px',
         boxShadow: '0px -6px 14px 0px rgba(0, 0, 0, 0.25)',
       }}
     >
