@@ -7,60 +7,37 @@ import {
   PolylineF,
 } from '@react-google-maps/api'
 
-
 const points = [
   {
     id: 1,
     name: '65 Dundas St W',
-    position: { lat: 43.65602993174411, lng:  -79.38270327796809 }, // 43.65602993174411, -79.38270327796809
+    position: { lat: 43.65602993174411, lng: -79.38270327796809 }, // 43.65602993174411, -79.38270327796809
   },
   {
     id: 2,
     name: 'George Vari Engineering and Computing Center',
     position: { lat: 43.657773517760866, lng: -79.37715977549773 }, // 43.657773517760866, -79.37715977549773
-  }
+  },
   /* 
   {
     id: 3,
     name: 'Baku',
     position: { lat: 40.3947365, lng: 49.6898045 },
   },
-  */ 
+  */
 ]
-
 
 const markers = [
-  [
-    43.65593,
-    -79.38279
-  ],
-  [
-    43.65644,
-    -79.38033
-  ],
-  [
-    43.65641,
-    -79.38012
-  ],
-  [
-    43.65614,
-    -79.37889
-  ],
-  [
-    43.65619,
-    -79.37858
-  ],
-  [
-    43.6565,
-    -79.37713
-  ],
-  [
-    43.65764,
-    -79.3776
-  ]
+  [43.65593, -79.38279],
+  [43.65644, -79.38033],
+  [43.65641, -79.38012],
+  [43.65614, -79.37889],
+  [43.65619, -79.37858],
+  [43.6565, -79.37713],
+  [43.65764, -79.3776],
 ]
 
-const Marker = ({ data }: { data: any }) => {
+const Marker = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
   })
@@ -92,11 +69,11 @@ const Marker = ({ data }: { data: any }) => {
         <div style={{ height: '90vh', width: '100%' }}>
           {isLoaded ? (
             <GoogleMap
-              center={{ lat: 43.65602993174411, lng:  -79.38270327796809 }}
+              center={{ lat: 43.65602993174411, lng: -79.38270327796809 }}
               zoom={15}
               onClick={() => setActiveMarker(null)}
               mapContainerStyle={{ width: '390px', height: '844px' }}
-              options={{mapId: "79f2502ef237e370" }} 
+              options={{ mapId: '79f2502ef237e370' }}
             >
               <PolylineF
                 path={markerPoints}
@@ -112,7 +89,9 @@ const Marker = ({ data }: { data: any }) => {
                   key={id}
                   position={position}
                   onClick={() => handleActiveMarker(id)}
-                  icon={{url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'}}
+                  icon={{
+                    url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                  }}
                 >
                   {activeMarker === id ? (
                     <InfoWindowF onCloseClick={() => setActiveMarker(null)}>

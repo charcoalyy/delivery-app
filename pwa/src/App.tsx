@@ -5,6 +5,7 @@ import Messages from '@pages/Messages'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SessionStart from '@pages/SessionStart'
 import Default from '@pages/Default'
+import Profile from '@pages/Profile'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/map" element={<DeliveryTrack />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/session" element={<SessionStart />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </Router>

@@ -97,7 +97,11 @@ const Jobs = () => {
 
   return (
     <>
-      <Tabs value={tab} sx={{ width: '100%' }} color="orange">
+      <Tabs
+        value={tab}
+        sx={{ width: '100%', marginTop: '16px' }}
+        color="orange"
+      >
         <Tabs.List grow>
           <Tabs.Tab value="new" onClick={() => setTab('new')}>
             New Orders

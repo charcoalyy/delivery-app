@@ -13,7 +13,7 @@ const BlueHeader = ({ title }: HeaderProps) => {
         direction="column"
         justify="flex-end"
         align="center"
-        mb="16px"
+        // mb="16px"
         sx={{ backgroundColor: 'blue', height: '111px' }}
       >
         <Title order={1} mb="20px" color="white">
