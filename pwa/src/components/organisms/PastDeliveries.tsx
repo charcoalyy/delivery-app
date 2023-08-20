@@ -7,7 +7,7 @@ const PastDeliveries = () => {
       justify="column"
       align="column"
       sx={{
-        width: '100%',
+        width: '390px',
         backgroundColor: '#FB7F0D',
         marginTop: '50px',
         height: '320px',
