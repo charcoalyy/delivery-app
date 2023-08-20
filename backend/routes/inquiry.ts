@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
   calculateRoute(origin, destination)
     .then((gres: Response) => gres.json())
     .then((gres: any) => {
-      if (gres.routes[0].distanceMeters > 25) {
+      if (gres.routes[0].distanceMeters > 25000) {
         throw new Error('Too far for local delivery!')
       }
       res.send(exports.attachFees(gres))
