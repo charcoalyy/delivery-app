@@ -18,7 +18,6 @@ exports.attachFees = (gres: any) => {
 }
 
 router.post('/', (req, res, next) => {
-  console.log(req.body)
   const { origin, destination } = req.body
   calculateRoute(origin, destination)
     .then((gres: Response) => gres.json())
