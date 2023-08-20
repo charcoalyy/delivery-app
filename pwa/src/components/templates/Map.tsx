@@ -5,6 +5,7 @@ import Wrapper from './Wrapper'
 import MapNavPopup from '@organisms/MapNavPopup'
 import { useMemo } from 'react'
 import useUser from '@context/userContext'
+import Marker from '@organisms/Marker'
 
 const Map = ({ data, action }: { data?: any; action: () => void }) => {
   const { type, trackingId } = useUser()
@@ -29,7 +30,10 @@ const Map = ({ data, action }: { data?: any; action: () => void }) => {
   }, [type, data])
 
   return (
-    <Wrapper header={type === 'courier' ? 'Map' : ''}>{userElements}</Wrapper>
+    <Wrapper header={type === 'courier' ? 'Map' : ''}>
+      {userElements}
+      <Marker />
+    </Wrapper>
   )
 }
 

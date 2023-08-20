@@ -46,11 +46,14 @@ function Marker() {
 
   // const markerPoints = [{ lat: 40.0709493, lng: 49.3694411 }, { lat: 40.5788843, lng: 49.5485073 }, { lat: 40.3947365, lng: 49.6898045 }]
 
-  const coords = markerPoints
+  // const coords = markerPoints
 
   return (
     <Fragment>
-      <div className="container">
+      <div
+        className="container"
+        style={{ zIndex: -1, position: 'absolute', top: '0px' }}
+      >
         <div style={{ height: '90vh', width: '100%' }}>
           {isLoaded ? (
             <GoogleMap
