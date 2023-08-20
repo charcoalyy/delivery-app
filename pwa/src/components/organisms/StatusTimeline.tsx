@@ -40,7 +40,7 @@ const StatusTimeline = ({ data }: { data: any }) => {
           sx={{
             padding: 0,
             borderTop: '1px solid transparent',
-            marginBottom: '28px',
+            marginBottom: '48px',
             maxWidth: '220px',
             opacity: i > progress ? 0.55 : 1,
           }}

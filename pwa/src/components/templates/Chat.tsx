@@ -74,7 +74,7 @@ const Chat = () => {
           width: '100%',
           padding: '30px',
           gap: '4px',
-          height: '360px',
+          height: '600px',
           overflowY: 'auto',
         }}
       >

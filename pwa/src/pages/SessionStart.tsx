@@ -10,7 +10,7 @@ const SessionStart = () => {
 
   useEffect(() => {
     if (type === 'customer') {
-      navigate('/')
+      navigate('/home')
     }
   }, [type])
 
@@ -46,7 +46,7 @@ const SessionStart = () => {
           You are currently offline. New orders are waiting for you!
         </Text>
       </div>
-      <ActionButton text="Go Online" handleClick={() => navigate('/')} />
+      <ActionButton text="Go Online" handleClick={() => navigate('/home')} />
     </Flex>
   )
 }

@@ -12,14 +12,14 @@ import NavbarIcon from '@atoms/NavbarIcon'
 import useUser from '@context/userContext'
 
 const customerTabs = [
-  { icon: IconHome2, label: 'Home', nav: '' },
+  { icon: IconHome2, label: 'Home', nav: 'home' },
   { icon: IconBox, label: 'My Packages', nav: 'track' },
   { icon: IconMessage, label: 'Messages', nav: 'messages' },
   { icon: IconSettings, label: 'Settings', nav: 'settings' },
 ]
 
 const courierTabs = [
-  { icon: IconHome2, label: 'Home', nav: '' },
+  { icon: IconHome2, label: 'Home', nav: 'home' },
   { icon: IconMap2, label: 'Map', nav: 'map' },
   { icon: IconUserCircle, label: 'Profile', nav: 'profile' },
 ]

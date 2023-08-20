@@ -27,7 +27,7 @@ const NavbarIcon = ({
       direction="column"
       align="center"
       onClick={() => {
-        navigate(`/${nav}` || '/')
+        navigate(`/${nav}` || '/home')
         handleActive()
       }}
     >

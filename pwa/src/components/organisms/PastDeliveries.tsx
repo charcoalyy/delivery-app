@@ -1,4 +1,4 @@
-import { Flex, SegmentedControl, Title } from '@mantine/core'
+import { Flex, SegmentedControl, Title, Text } from '@mantine/core'
 
 const PastDeliveries = () => {
   return (
@@ -9,9 +9,11 @@ const PastDeliveries = () => {
       sx={{
         width: '100%',
         backgroundColor: '#FB7F0D',
-        marginTop: '16px',
-        height: '100%',
-        padding: '12px 20px',
+        marginTop: '50px',
+        height: '320px',
+        padding: '20px',
+        position: 'absolute',
+        bottom: 0,
       }}
     >
       <SegmentedControl
@@ -25,10 +27,22 @@ const PastDeliveries = () => {
           backgroundColor: 'white',
           marginTop: '12px',
           borderRadius: '5px',
-          padding: '10px',
+          padding: '16px',
         }}
       >
         <Title order={3}>iPad Pro 11in</Title>
+        <Text fz="xs">Ordered 08/19/2023</Text>
+      </div>
+      <div
+        style={{
+          backgroundColor: 'white',
+          marginTop: '12px',
+          borderRadius: '5px',
+          padding: '16px',
+        }}
+      >
+        <Title order={3}>Laptop Cleaner</Title>
+        <Text fz="xs">Ordered 08/19/2023</Text>
       </div>
     </Flex>
   )

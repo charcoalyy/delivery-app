@@ -31,7 +31,7 @@ const MapNavPopup = () => {
           </Text>
         </Grid.Col>
         <Grid.Col span={3}>
-          <Button color="indigo" radius="xl" onClick={() => navigate('/')}>
+          <Button color="indigo" radius="xl" onClick={() => navigate('/home')}>
             Exit
           </Button>
         </Grid.Col>

@@ -10,7 +10,7 @@ const Hero = () => {
         backgroundColor: 'blue',
         height: '360px',
         borderRadius: '0 0 50px 50px',
-        padding: '110px 30px',
+        padding: '120px 30px',
       }}
     >
       <div style={{ width: '60%', marginBottom: '20px' }}>

@@ -27,7 +27,7 @@ const Wrapper = ({
         align="center"
         sx={{
           width: '390px',
-          height: '766px',
+          height: '796px',
           maxHeight: '766px',
           overflow: 'hidden',
         }}
