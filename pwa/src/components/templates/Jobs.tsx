@@ -1,4 +1,4 @@
-import { Flex, Tabs } from '@mantine/core'
+import { Flex, Stack, Tabs } from '@mantine/core'
 import Job from '@organisms/Job'
 
 const Jobs = () => {
@@ -10,19 +10,23 @@ const Jobs = () => {
           <Tabs.Tab value="messages">Active Orders</Tabs.Tab>
         </Tabs.List>
       </Tabs>
-      <Flex
+      <Stack
         sx={{
           width: '100%',
-          height: '100%',
+          height: '420px',
           padding: '16px',
           backgroundColor: '#E8E9F3',
+          overflowY: 'scroll',
         }}
-        direction="column"
         justify="flex-start"
         align="center"
       >
         <Job />
-      </Flex>
+        <Job />
+        <Job />
+        <Job />
+        <Job />
+      </Stack>
     </>
   )
 }

@@ -1,4 +1,6 @@
-import { Card, Grid, Text } from '@mantine/core'
+import LabelledIcon from '@atoms/LabelledIcon'
+import { Card, Grid, Text, Title } from '@mantine/core'
+import { IconCar, IconPackage } from '@tabler/icons-react'
 
 const Job = () => {
   return (
@@ -6,9 +8,11 @@ const Job = () => {
       p="xl"
       sx={{
         width: '100%',
+        minHeight: '200px',
         height: '200px',
         boxShadow: '0px 4px 8px 0px rgba(169, 169, 169, 0.35)',
         borderRadius: '10px',
+        marginBottom: '8px',
       }}
     >
       <Card.Section
@@ -52,11 +56,18 @@ const Job = () => {
         </Grid>
       </Card.Section>
 
-      {/* right, left margins are negative – -1 * theme.spacing.xl */}
-      <Card.Section>Middle section</Card.Section>
-
-      {/* bottom, right, left margins are negative – -1 * theme.spacing.xl */}
-      <Card.Section>Last section</Card.Section>
+      <Card.Section
+        sx={{
+          margin: '15px 8px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <LabelledIcon text="50×30×20in" icon={IconPackage} />
+        <LabelledIcon text="8km" icon={IconCar} />
+        <Title order={3}>$17.32</Title>
+      </Card.Section>
     </Card>
   )
 }
