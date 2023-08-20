@@ -19,7 +19,7 @@ const CardSearch = () => {
       }}
     >
       <Title order={3} mb="8px">
-        Witness your package's journey
+        Watch your package's journey
       </Title>
       <SendID />
     </Flex>

@@ -13,25 +13,25 @@ const Chat = () => {
       id: 1,
       author: 'courier',
       timestamp: '03/28/2023',
-      body: 'hey man i just stole ur tv haha',
+      body: 'hey man i gotchu, ur tv will be there soon',
     },
     {
       id: 2,
       author: 'customer',
       timestamp: '03/28/2023',
-      body: 'bro wtf',
+      body: 'absolute goat',
     },
     {
       id: 3,
       author: 'customer',
       timestamp: '03/28/2023',
-      body: 'aint no way',
+      body: 'thanks jason',
     },
     {
       id: 4,
       author: 'courier',
       timestamp: '03/29/2023',
-      body: 'lol',
+      body: 'wait im stuck in traffic',
     },
   ]) // TODO: set to userrequest
 
