@@ -18,11 +18,13 @@ exports.attachFees = (gres: any) => {
 }
 
 router.post('/', (req, res, next) => {
-  console.log(req.body)
   const { origin, destination } = req.body
   calculateRoute(origin, destination)
     .then((gres: Response) => gres.json())
     .then((gres: any) => {
+      if (gres.routes[0].distanceMeters > 25) {
+        throw new Error('Too far for local delivery!')
+      }
       res.send(exports.attachFees(gres))
     })
     .catch((err: any) => next(err))
@@ -37,8 +39,12 @@ router.get('/geocode/:address', async (req, res, next) => {
 })
 
 router.get('/decode-polyline/:encodedPl', (req, res, next) => {
-  const encodedPl = req.params.encodedPl
-  res.send(decodePolyline(encodedPl))
+  try {
+    const encodedPl = req.params.encodedPl
+    res.send(decodePolyline(encodedPl))
+  } catch (err) {
+    next(err)
+  }
 })
 
 export default router

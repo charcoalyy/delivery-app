@@ -1,5 +1,3 @@
-import { equal } from 'assert'
-import { create } from 'domain'
 import { Router, Response } from 'express'
 const { calculateRoute } = require('../utils/google-maps')
 const { attachFees } = require('../routes/inquiry')
@@ -21,6 +19,9 @@ const createNewShipment = (origin: string, destination: string) => {
     .then((gres: Response) => gres.json())
     .then((gres: any) => {
       const best = attachFees(gres).routes[0]
+      if (best.distanceMeters > 25) {
+        throw new Error('Too far for local delivery!')
+      }
 
       const shipmentListRef = ref(database, 'shipments')
       const newShipmentRef = push(shipmentListRef)
@@ -41,41 +42,46 @@ const createNewShipment = (origin: string, destination: string) => {
 
 const getShipment = (tracking: string) => {
   const dbRef = ref(database)
-  const res = get(child(dbRef, `shipments/${tracking}`))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        return snapshot.val()
-      } else {
-        return null
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+  const res = get(child(dbRef, `shipments/${tracking}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      return snapshot.val()
+    } else {
+      throw new Error(`Error: ${tracking} does not exist`)
+    }
+  })
   return res
 }
 
-router.post('/', async (req, res) => {
-  const { origin, destination } = req.body
-  console.log(req.body)
-  const id = await createNewShipment(origin, destination)
+router.post('/', async (req, res, next) => {
+  try {
+    const { origin, destination } = req.body
+    const id = await createNewShipment(origin, destination)
 
-  res.json({ tracking_number: id })
+    res.json({ tracking_number: id })
+  } catch (err) {
+    next(err)
+  }
 })
 
-router.get('/:tracking', async (req, res) => {
-  getShipment(req.params.tracking).then((gres) => res.send(gres))
+router.get('/:tracking', async (req, res, next) => {
+  getShipment(req.params.tracking)
+    .then((gres) => res.send(gres))
+    .catch((err) => next(err))
 })
 
-router.put('/status/:tracking', async (req, res) => {
+router.put('/status/:tracking', async (req, res, next) => {
   const tracking = req.params.tracking
   const { status } = req.body
-  const shipment = await getShipment(tracking)
-  shipment.status = status
-  const updates: any = {}
-  updates['/shipments/' + tracking] = shipment
-  const gres = update(ref(database), updates)
-  res.send('')
+
+  getShipment(tracking)
+    .then((shipment) => {
+      shipment.status = status
+      const updates: any = {}
+      updates['/shipments/' + tracking] = shipment
+      const gres = update(ref(database), updates)
+      res.send('')
+    })
+    .catch((err) => next(err))
 })
 
 export default router

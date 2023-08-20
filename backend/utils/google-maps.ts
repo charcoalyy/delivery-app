@@ -2,7 +2,7 @@ const polyline = require('google-polyline')
 
 exports.geocode = async (address: string) => {
   return fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_MAPS_API_KEY}`
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_API_KEY}`
   )
     .then((gres) => gres.json())
     .then((gres) => {
@@ -24,7 +24,7 @@ exports.calculateRoute = async (origin: string, destination: string) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Goog-Api-Key': `${process.env.GOOGLE_MAPS_API_KEY}`,
+      'X-Goog-Api-Key': `${process.env.GOOGLE_API_KEY}`,
       'X-Goog-FieldMask':
         'routes.distanceMeters,routes.polyline.encodedPolyline',
     },

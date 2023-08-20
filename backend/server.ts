@@ -6,7 +6,7 @@ import express, { Express, Request, Response, response } from 'express'
 import 'dotenv/config'
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: process.env.GOOGLE_API_KEY,
   authDomain: 'delivery-app-396404.firebaseapp.com',
   projectId: 'delivery-app-396404',
   storageBucket: 'delivery-app-396404.appspot.com',
