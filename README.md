@@ -1,4 +1,4 @@
-# Delivery App
+# Stride: Delivery App
 
 Faster, easier package delivery, built for and empowered by local community.
 
@@ -7,15 +7,15 @@ We're all familiar with UberEats and DoorDash—time is a precious, precious com
 
 A dedicated service for local delivery would offset the heaviest load-balancing issues traditional shipping services face, while making same-day shipping much more of a commonplace. Allowing the general population to participate as couriers would give current delivery drivers, such as those for UberEats and Uber, more work opportunities during off-peak hours.
 
-Industry giants like Amazon may have recognized the power of localized delivery, but unfortunately, such services often remain out of reach for the average business. {PLACEHOLDER}'s aim is to bridge this gap, democratizing efficient and prompt local parcel delivery. There's a sharp rise in demand for faster delivery ecosystem, and our service ensures no business needs to be left behind.
+Industry giants like Amazon may have recognized the power of localized delivery, but unfortunately, such services often remain out of reach for the average business. Strides's aim is to bridge this gap, democratizing efficient and prompt local parcel delivery. There's a sharp rise in demand for faster delivery ecosystem, and our service ensures no business needs to be left behind.
 
 ## What it does
 
-{PLACEHOLDER} is a shipping API suite and software infrastructure designed to be integrated with e-commerce enterprises. The service expedites businesses' ability to achieve high-speed local delivery, making same-day shipping for the majority a more feasible standard.
+Stride is a shipping API suite and software infrastructure designed to be integrated with e-commerce enterprises. The service expedites businesses' ability to achieve high-speed local delivery, making same-day shipping for the majority a more feasible standard.
 
-With the {PLACEHOLDER} API at the helm of the sales in an e-commerce site, determining whether a delivery should be local or long-distance becomes a seamless process. For larger retailers, at checkout, {PLACEHOLDER} pinpoints the most suitable fulfillment center for each customer's needs to ensure optimal distribution strategy. Shipping costs are calculated based on distance; shipping routes are set up as offers to drivers based on their compatibility, considering factors like vehicle size, delivery deadlines, and so on. Drivers receive and communicate information via a mobile app to pick up parcels and deliver accordingly. Customers can also choose to use the mobile app to track the courier's progress until delivery date. 
+With the Stride API at the helm of the sales in an e-commerce site, determining whether a delivery should be local or long-distance becomes a seamless process. For larger retailers, at checkout, Stride pinpoints the most suitable fulfillment center for each customer's needs to ensure optimal distribution strategy. Shipping costs are calculated based on distance; shipping routes are set up as offers to drivers based on their compatibility, considering factors like vehicle size, delivery deadlines, and so on. Drivers receive and communicate information via a mobile app to pick up parcels and deliver accordingly. Customers can also choose to use the mobile app to track the courier's progress until delivery date. 
 
-Accountability for smooth package delivery is thus attained through {PLACEHOLDER} allowing cross-communication of milestones from all three ends: the retailer, the courier, and the customer.
+Accountability for smooth package delivery is thus attained through Stride allowing cross-communication of milestones from all three ends: the retailer, the courier, and the customer.
 
 ## How we built it
 
@@ -35,4 +35,4 @@ We learned more about what utilities Google Cloud APIs provide and how to implem
 
 ## What's next
 
-We fleshed out, iterated, and built user flows for both delivery drivers and customers. Next steps include delving deeper into our third face: the shipment process that retailers at all scales face, from small businesses to large companies, to identify the best ways for sellers to interface with {PLACEHOLDER}'s APIs. We also wanted to explore customer accounts and subscription models to further incentivize usage of local delivery, centralize all delivery needs, and introduce even more convenience to the user experience.
+We fleshed out, iterated, and built user flows for both delivery drivers and customers. Next steps include delving deeper into our third face: the shipment process that retailers at all scales face, from small businesses to large companies, to identify the best ways for sellers to interface with Stride's APIs. We also wanted to explore customer accounts and subscription models to further incentivize usage of local delivery, centralize all delivery needs, and introduce even more convenience to the user experience.
