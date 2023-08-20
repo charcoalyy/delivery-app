@@ -2,6 +2,7 @@ import useUser from '@context/userContext'
 import CardSearch from '@organisms/CardSearch'
 import Hero from '@organisms/Hero'
 import PastDeliveries from '@organisms/PastDeliveries'
+import Jobs from '@templates/Jobs'
 import Wrapper from '@templates/Wrapper'
 import { useMemo } from 'react'
 
@@ -11,7 +12,7 @@ const Home = () => {
   const userElements = useMemo(() => {
     switch (type) {
       case 'courier':
-        return <></>
+        return <Jobs />
       case 'customer':
       default:
         return (
@@ -23,7 +24,9 @@ const Home = () => {
         )
     }
   }, [type])
-  return <Wrapper>{userElements}</Wrapper>
+  return (
+    <Wrapper header={type === 'courier' ? true : false}>{userElements}</Wrapper>
+  )
 }
 
 export default Home

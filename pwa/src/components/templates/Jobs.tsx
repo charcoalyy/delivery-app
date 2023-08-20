@@ -122,10 +122,12 @@ const Jobs = () => {
       >
         {displayJobs}
       </Stack>
-      <ActionButton
-        text="Accept Selected Orders"
-        handleClick={() => navigate('/map')}
-      ></ActionButton>
+      {tab !== 'active' && (
+        <ActionButton
+          text="Accept Selected Orders"
+          handleClick={() => navigate('/map')}
+        ></ActionButton>
+      )}
     </>
   )
 }
