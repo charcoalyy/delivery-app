@@ -114,7 +114,7 @@ const Jobs = () => {
       <Stack
         sx={{
           width: '100%',
-          height: '620px',
+          height: '100%',
           padding: '16px',
           backgroundColor: '#E8E9F3',
           overflowY: 'scroll',

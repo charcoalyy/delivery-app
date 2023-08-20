@@ -1,4 +1,12 @@
-import { Group, Stack, Title, Text, ActionIcon, Flex } from '@mantine/core'
+import {
+  Group,
+  Stack,
+  Title,
+  Text,
+  ActionIcon,
+  Flex,
+  Grid,
+} from '@mantine/core'
 import { IconPackage, IconStarFilled } from '@tabler/icons-react'
 
 const ProfileInfo = () => {
@@ -7,8 +15,6 @@ const ProfileInfo = () => {
       sx={{
         width: '100%',
         height: '100%',
-        padding: '30px',
-        marginTop: '-20px',
         backgroundColor: '#f3f3f3',
         overflowY: 'scroll',
       }}
@@ -22,13 +28,13 @@ const ProfileInfo = () => {
           borderRadius: '100%',
           backgroundColor: 'blue',
           position: 'relative',
-          top: -100,
+          top: -25,
           zIndex: 0,
         }}
       ></div>
       <Stack
         align="center"
-        sx={{ position: 'relative', top: '-180px', zIndex: 1 }}
+        sx={{ position: 'relative', top: '-100px', zIndex: 1 }}
       >
         <div
           style={{
@@ -80,6 +86,32 @@ const ProfileInfo = () => {
             $2081.13
           </Text>
           <Text>this month.</Text>
+        </Flex>
+        <Flex
+          direction="column"
+          justify="center"
+          align="center"
+          sx={{
+            width: '300px',
+            borderRadius: '10px',
+            padding: '20px',
+            backgroundColor: 'white',
+          }}
+        >
+          <Grid>
+            <Grid.Col span={6}>
+              <img width="100%" src="images/driver_vehicle.png"></img>
+            </Grid.Col>
+            <Grid.Col span={6}>
+              <Text fz="xs" weight={300}>
+                VEHICLE
+              </Text>
+              <Text weight={600}>Toyota Camry 2021, Red</Text>
+              <Text fz="xs" sx={{ opacity: 0.75 }}>
+                Change
+              </Text>
+            </Grid.Col>
+          </Grid>
         </Flex>
       </Stack>
     </Stack>
