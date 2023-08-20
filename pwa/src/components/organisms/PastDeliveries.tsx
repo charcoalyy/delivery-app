@@ -8,7 +8,7 @@ const PastDeliveries = () => {
       align="column"
       sx={{
         width: '100%',
-        backgroundColor: 'orange',
+        backgroundColor: '#FB7F0D',
         marginTop: '16px',
         height: '100%',
         padding: '12px 20px',

@@ -10,26 +10,25 @@ const Hero = () => {
         backgroundColor: 'blue',
         height: '360px',
         borderRadius: '0 0 50px 50px',
-        padding: '80px 30px',
+        padding: '110px 30px',
       }}
     >
       <div style={{ width: '60%', marginBottom: '20px' }}>
         <Title order={1} color="white">
           Product Name
         </Title>
-        <Text color="white">
-          Giving you fast, easy access to your packages by empowering local
-          deliverers.
+        <Text color="white" fz="sm">
+          Fast, easy package delivery while empowering local couriers.
         </Text>
       </div>
       <Flex mb="8px">
-        <IconClockHeart color="white" style={{ marginRight: '16px' }} />
+        <IconClockHeart color="white" style={{ marginRight: '12px' }} />
         <Text fz="xs" color="white">
-          Same-day delivery, on more days
+          Increased same-day delivery
         </Text>
       </Flex>
       <Flex>
-        <IconUsersGroup color="white" style={{ marginRight: '16px' }} />
+        <IconUsersGroup color="white" style={{ marginRight: '12px' }} />
         <Text fz="xs" color="white">
           Transparent delivery communication
         </Text>

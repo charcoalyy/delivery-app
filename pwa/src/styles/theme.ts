@@ -1,11 +1,13 @@
 import { MantineThemeOverride } from '@mantine/core'
 
 export const theme: MantineThemeOverride = {
-  colorScheme: 'light',
   lineHeight: 1.5,
+
   colors: {
-    primary: ['#323fe8', '#ffcc18', '#fb7b05'],
+    blue: ['#323fe8', '#6A73EF', '#D7DAFF'],
   },
+  primaryColor: 'blue',
+
   fontFamily: 'Inter, system-ui, Helvetica, Arial, sans-serif',
   headings: {
     fontFamily: 'Inter, sans-serif',

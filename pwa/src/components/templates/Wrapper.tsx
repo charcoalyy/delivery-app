@@ -1,8 +1,15 @@
 import { Flex } from '@mantine/core'
+import BlueHeader from '@molecules/BlueHeader'
 import NavbarFooter from '@molecules/Navbar'
 import { ReactNode } from 'react'
 
-const Wrapper = ({ children }: { children: ReactNode }) => {
+const Wrapper = ({
+  children,
+  header,
+}: {
+  children: ReactNode
+  header?: string
+}) => {
   return (
     <Flex
       direction="column"
@@ -11,8 +18,10 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
         width: '390px',
         height: '844px',
         maxHeight: '844px',
+        overflow: 'hidden',
       }}
     >
+      {header && <BlueHeader title={header} />}
       <Flex
         direction="column"
         align="center"
@@ -20,8 +29,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
           width: '390px',
           height: '766px',
           maxHeight: '766px',
-          border: '1px solid red',
-          overflowY: 'auto',
+          overflow: 'hidden',
         }}
       >
         {children}
