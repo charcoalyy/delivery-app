@@ -41,7 +41,7 @@ const NavbarFooter = () => {
         handleActive={() => setActive(tab.nav)}
         palette={{
           active: tab.nav === 'track' ? 'orange' : 'blue',
-          inactive: tab.nav === 'track' ? 'gray' : 'gray',
+          inactive: 'gray',
         }}
       />
     ))

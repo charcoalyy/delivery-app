@@ -27,7 +27,7 @@ export default ({ author, timestamp, body, seen, last }: MessageProps) => {
       >
         <Flex
           sx={{
-            backgroundColor: author !== user ? 'orange' : 'blue',
+            backgroundColor: author !== user ? '#FB7F0D' : 'blue',
             color: author !== user ? 'black' : 'white',
             padding: '10px 15px',
             borderRadius: '5px',

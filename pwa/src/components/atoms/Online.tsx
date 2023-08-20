@@ -3,13 +3,14 @@ import { useState } from 'react'
 
 const Online = () => {
   const [checked, setChecked] = useState(true)
+
   return (
     <div style={{ position: 'absolute', top: '64px', left: '16px', zIndex: 1 }}>
       <Switch
-        color="orange"
+        color="#FB7F0D"
         checked={checked}
         onChange={() => setChecked(!checked)}
-        label="Orange"
+        label="Online"
         sx={{
           '&	.mantine-Switch-label': {
             color: 'white',

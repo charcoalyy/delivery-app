@@ -18,18 +18,17 @@ const Hero = () => {
           Product Name
         </Title>
         <Text color="white" fz="sm">
-          Giving you fast, easy access to your packages by empowering local
-          deliverers.
+          Fast, easy package delivery while empowering local couriers.
         </Text>
       </div>
       <Flex mb="8px">
-        <IconClockHeart color="white" style={{ marginRight: '16px' }} />
+        <IconClockHeart color="white" style={{ marginRight: '12px' }} />
         <Text fz="xs" color="white">
-          Same-day delivery, on more days
+          Increased same-day delivery
         </Text>
       </Flex>
       <Flex>
-        <IconUsersGroup color="white" style={{ marginRight: '16px' }} />
+        <IconUsersGroup color="white" style={{ marginRight: '12px' }} />
         <Text fz="xs" color="white">
           Transparent delivery communication
         </Text>
