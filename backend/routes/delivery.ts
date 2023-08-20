@@ -19,6 +19,9 @@ const createNewShipment = (origin: string, destination: string) => {
     .then((gres: Response) => gres.json())
     .then((gres: any) => {
       const best = attachFees(gres).routes[0]
+      if (best.distanceMeters > 25) {
+        throw new Error('Too far for local delivery!')
+      }
 
       const shipmentListRef = ref(database, 'shipments')
       const newShipmentRef = push(shipmentListRef)
