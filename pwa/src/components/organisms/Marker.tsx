@@ -100,8 +100,6 @@ const Marker = ({ data }: { data: any }) => {
             >
               <PolylineF
                 path={markerPoints}
-                geodesic={true}
-                clickability={true}
                 options={{
                   strokeColor: '#323FE8',
                   strokeOpacity: 1,

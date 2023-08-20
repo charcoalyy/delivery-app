@@ -1,6 +1,7 @@
 import { Flex } from '@mantine/core'
 import Locations from '@molecules/Locations'
 import Person from '@molecules/Person'
+import ErrorNotice from '@templates/ErrorNotice'
 
 const MapPopup = ({ data }: { data: any }) => {
   return (
@@ -21,7 +22,7 @@ const MapPopup = ({ data }: { data: any }) => {
       }}
     >
       <Person />
-      {data && <Locations data={data} />}
+      {data ? <Locations data={data} /> : <ErrorNotice />}
     </Flex>
   )
 }

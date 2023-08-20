@@ -2,7 +2,6 @@ import ActionButton from '@atoms/ActionButton'
 import { Stack, Tabs } from '@mantine/core'
 import Job from '@organisms/Job'
 import { useCallback, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const jobData = [
   {
@@ -58,7 +57,6 @@ const jobData = [
 ]
 
 const Jobs = () => {
-  const navigate = useNavigate()
   const [tab, setTab] = useState('new')
   const [selected, setSelected] = useState([] as string[])
 
@@ -125,7 +123,7 @@ const Jobs = () => {
       {tab !== 'active' && (
         <ActionButton
           text="Accept Selected Orders"
-          handleClick={() => navigate('/map')}
+          handleClick={() => setTab('active')}
         ></ActionButton>
       )}
     </>

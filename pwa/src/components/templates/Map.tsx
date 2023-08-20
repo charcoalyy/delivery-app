@@ -32,7 +32,7 @@ const Map = ({ data, action }: { data?: any; action: () => void }) => {
   return (
     <Wrapper header={type === 'courier' ? 'Map' : ''}>
       {userElements}
-      <Marker data={data} />
+      <Marker />
     </Wrapper>
   )
 }
