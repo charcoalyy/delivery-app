@@ -1,3 +1,4 @@
+import useUser from '@context/userContext'
 import { Flex, Grid, Text } from '@mantine/core'
 
 interface MessageProps {
@@ -9,7 +10,7 @@ interface MessageProps {
 }
 
 export default ({ author, timestamp, body, seen, last }: MessageProps) => {
-  const user = 'placeholder' // TODO: set to auth
+  const { type: user } = useUser() // TODO: set to auth
 
   return (
     <Grid
@@ -28,7 +29,7 @@ export default ({ author, timestamp, body, seen, last }: MessageProps) => {
         <Flex
           sx={{
             backgroundColor: author !== user ? '#FB7F0D' : 'blue',
-            color: author !== user ? 'black' : 'white',
+            color: 'white',
             padding: '10px 15px',
             borderRadius: '5px',
           }}

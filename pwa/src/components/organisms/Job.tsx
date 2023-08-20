@@ -2,6 +2,7 @@ import LabelledIcon from '@atoms/LabelledIcon'
 import { Button, Card, Grid, Text, Title } from '@mantine/core'
 import { IconCar, IconPackage } from '@tabler/icons-react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Job = ({
   data,
@@ -12,6 +13,7 @@ const Job = ({
   handleSelect: (params: any) => void
   active?: boolean
 }) => {
+  const navigate = useNavigate()
   const [selected, setSelected] = useState(false)
   return (
     <Card
@@ -89,16 +91,26 @@ const Job = ({
       {active && (
         <Card.Section
           sx={{
-            margin: '15px 8px',
+            margin: '15px 2px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
         >
-          <Title order={1} color="blue">
+          <Title order={1} color="blue" mr="16px">
             {data.time}
           </Title>
-          <Button radius="md">Start Now</Button>
+          <Button
+            color="indigo"
+            variant="outline"
+            radius="xl"
+            onClick={() => navigate('/messages')}
+          >
+            Chat
+          </Button>
+          <Button color="indigo" radius="xl" onClick={() => navigate('/map')}>
+            Start Now
+          </Button>
         </Card.Section>
       )}
     </Card>

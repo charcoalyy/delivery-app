@@ -11,25 +11,25 @@ const Chat = () => {
   const [messageList, setMessageList] = useState([
     {
       id: 1,
-      author: 'man',
+      author: 'courier',
       timestamp: '03/28/2023',
       body: 'hey man i just stole ur tv haha',
     },
     {
       id: 2,
-      author: 'placeholder',
+      author: 'customer',
       timestamp: '03/28/2023',
       body: 'bro wtf',
     },
     {
       id: 3,
-      author: 'placeholder',
+      author: 'customer',
       timestamp: '03/28/2023',
       body: 'aint no way',
     },
     {
       id: 4,
-      author: 'man',
+      author: 'courier',
       timestamp: '03/29/2023',
       body: 'lol',
     },
@@ -41,7 +41,7 @@ const Chat = () => {
       ...messageList,
       {
         id: messageList.length + 1,
-        author: 'placeholder',
+        author: 'customer',
         body: message,
         timestamp: '03/29/2023',
       },

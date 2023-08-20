@@ -8,12 +8,12 @@ const StatusIcon = ({ status }: { status: 'past' | 'now' | 'future' }) => {
       case 'past':
         return (
           <ActionIcon variant="transparent" radius="xl" size="xs" color="blue">
-            <IconCircle />
+            <IconCircle color="blue" />
           </ActionIcon>
         )
       case 'now':
         return (
-          <ActionIcon variant="light" radius="xl" size="xs" color="blue">
+          <ActionIcon variant="light" radius="xl" size="xs" color="indigo">
             <IconCircleFilled />
           </ActionIcon>
         )

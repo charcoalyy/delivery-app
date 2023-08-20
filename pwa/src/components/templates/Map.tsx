@@ -26,7 +26,7 @@ const Map = ({ data, action }: { data?: any; action: () => void }) => {
           </>
         )
     }
-  }, [type])
+  }, [type, data])
 
   return (
     <Wrapper header={type === 'courier' ? 'Map' : ''}>{userElements}</Wrapper>
