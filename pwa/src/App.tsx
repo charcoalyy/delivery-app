@@ -5,6 +5,7 @@ import Messages from '@pages/Messages'
 import Marker from '@pages/Marker'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SessionStart from '@pages/SessionStart'
+import DeliveryJobs from '@pages/DeliveryJobs'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="*" element={<Marker />} />
 
         <Route path="/session" element={<SessionStart />} />
+        <Route path="/jobs" element={<DeliveryJobs />} />
       </Routes>
     </Router>
   )

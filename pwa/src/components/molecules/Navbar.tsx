@@ -1,38 +1,51 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Navbar, Flex } from '@mantine/core'
 import {
   IconHome2,
   IconBox,
   IconMessage,
   IconSettings,
+  IconUserCircle,
+  IconMap2,
 } from '@tabler/icons-react'
 import NavbarIcon from '@atoms/NavbarIcon'
+import useUser from '@context/userContext'
 
-const userTabs = [
+const customerTabs = [
   { icon: IconHome2, label: 'Home', nav: '' },
   { icon: IconBox, label: 'My Packages', nav: 'track' },
   { icon: IconMessage, label: 'Messages', nav: 'messages' },
   { icon: IconSettings, label: 'Settings', nav: 'settings' },
 ]
 
+const courierTabs = [
+  { icon: IconHome2, label: 'Home', nav: '' },
+  { icon: IconMap2, label: 'Map', nav: 'map' },
+  { icon: IconUserCircle, label: 'Profile', nav: 'profile' },
+]
+
 const NavbarFooter = () => {
   var url = location.href.split('/')
   const [active, setActive] = useState(url[url.length - 1])
+  const { type } = useUser()
 
-  const navTabs = userTabs.map((tab) => (
-    <NavbarIcon
-      {...tab}
-      key={tab.label}
-      active={
-        tab.nav === active || (tab.nav === 'track' && active === 'status')
-      }
-      handleActive={() => setActive(tab.nav)}
-      palette={{
-        active: tab.nav === 'track' ? 'orange' : 'blue',
-        inactive: tab.nav === 'track' ? 'gray' : 'gray',
-      }}
-    />
-  ))
+  const navTabs = useMemo(() => {
+    const tabs = type === 'courier' ? courierTabs : customerTabs
+    return tabs.map((tab) => (
+      <NavbarIcon
+        {...tab}
+        key={tab.label}
+        active={
+          tab.nav === active || (tab.nav === 'track' && active === 'status')
+        }
+        handleActive={() => setActive(tab.nav)}
+        palette={{
+          active: tab.nav === 'track' ? 'orange' : 'blue',
+          inactive: tab.nav === 'track' ? 'gray' : 'gray',
+        }}
+      />
+    ))
+  }, [type])
 
   return (
     <Navbar
