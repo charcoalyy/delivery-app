@@ -37,8 +37,12 @@ router.get('/geocode/:address', async (req, res, next) => {
 })
 
 router.get('/decode-polyline/:encodedPl', (req, res, next) => {
-  const encodedPl = req.params.encodedPl
-  res.send(decodePolyline(encodedPl))
+  try {
+    const encodedPl = req.params.encodedPl
+    res.send(decodePolyline(encodedPl))
+  } catch (err) {
+    next(err)
+  }
 })
 
 export default router
