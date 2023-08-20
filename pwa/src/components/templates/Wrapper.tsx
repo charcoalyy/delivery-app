@@ -8,7 +8,7 @@ const Wrapper = ({
   header,
 }: {
   children: ReactNode
-  header?: boolean
+  header?: string
 }) => {
   return (
     <Flex
@@ -21,7 +21,7 @@ const Wrapper = ({
         overflow: 'hidden',
       }}
     >
-      {header && <BlueHeader title="Delivery" />}
+      {header && <BlueHeader title={header} />}
       <Flex
         direction="column"
         align="center"

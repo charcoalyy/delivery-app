@@ -7,7 +7,7 @@ const Online = () => {
   return (
     <div style={{ position: 'absolute', top: '64px', left: '16px', zIndex: 1 }}>
       <Switch
-        color="#FB7F0D"
+        color="orange"
         checked={checked}
         onChange={() => setChecked(!checked)}
         label="Online"

@@ -25,7 +25,9 @@ const Home = () => {
     }
   }, [type])
   return (
-    <Wrapper header={type === 'courier' ? true : false}>{userElements}</Wrapper>
+    <Wrapper header={type === 'courier' ? 'Delivery' : ''}>
+      {userElements}
+    </Wrapper>
   )
 }
 
