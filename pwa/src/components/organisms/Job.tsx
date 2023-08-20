@@ -1,18 +1,35 @@
 import LabelledIcon from '@atoms/LabelledIcon'
-import { Card, Grid, Text, Title } from '@mantine/core'
+import { Button, Card, Grid, Text, Title } from '@mantine/core'
 import { IconCar, IconPackage } from '@tabler/icons-react'
+import { useState } from 'react'
 
-const Job = () => {
+const Job = ({
+  data,
+  active,
+  handleSelect,
+}: {
+  data: any
+  handleSelect: (params: any) => void
+  active?: boolean
+}) => {
+  const [selected, setSelected] = useState(false)
   return (
     <Card
       p="xl"
       sx={{
         width: '100%',
-        minHeight: '200px',
-        height: '200px',
+        minHeight: active ? '260px' : '200px',
         boxShadow: '0px 4px 8px 0px rgba(169, 169, 169, 0.35)',
         borderRadius: '10px',
+        border: '2px solid',
+        borderColor: selected ? '#6a73ef' : 'transparent',
+        backgroundColor: selected ? '#f8f9fe' : 'white',
         marginBottom: '8px',
+        cursor: 'pointer',
+      }}
+      onClick={() => {
+        setSelected(!selected)
+        handleSelect(data.origin)
       }}
     >
       <Card.Section
@@ -32,9 +49,9 @@ const Job = () => {
               Pickup
             </Text>
             <Text fz="sm" weight={700}>
-              65 Dundas St W, Toronto, ON
+              {data.origin}
             </Text>
-            <Text fz="sm">09:40 AM</Text>
+            <Text fz="sm">{data.origin_time}</Text>
           </Grid.Col>
           <Grid.Col
             span={6}
@@ -49,9 +66,9 @@ const Job = () => {
               Dropoff
             </Text>
             <Text fz="sm" weight={700}>
-              245 Church St W, Toronto, ON
+              {data.destination}
             </Text>
-            <Text fz="sm">11:56 PM</Text>
+            <Text fz="sm">{data.destination_time}</Text>
           </Grid.Col>
         </Grid>
       </Card.Section>
@@ -64,10 +81,26 @@ const Job = () => {
           alignItems: 'center',
         }}
       >
-        <LabelledIcon text="50×30×20in" icon={IconPackage} />
-        <LabelledIcon text="8km" icon={IconCar} />
-        <Title order={3}>$17.32</Title>
+        <LabelledIcon text={data.dimensions} icon={IconPackage} />
+        <LabelledIcon text={data.distance} icon={IconCar} />
+        <Title order={3}>{data.salary}</Title>
       </Card.Section>
+
+      {active && (
+        <Card.Section
+          sx={{
+            margin: '15px 8px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Title order={1} color="blue">
+            {data.time}
+          </Title>
+          <Button radius="md">Start Now</Button>
+        </Card.Section>
+      )}
     </Card>
   )
 }
